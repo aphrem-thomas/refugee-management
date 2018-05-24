@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Route, Link} from 'react-router-dom';
-import RefugeeHome from './components/refugeeHome.js';
+import RefugeeHome from './components/refugeeHome.jsx';
 import FrontEndPageButton from './components/frontPageButtons';
 import UserPage from './components/userPage.jsx';
 // import SupplyChain from './components/supplyChainHome.jsx';
