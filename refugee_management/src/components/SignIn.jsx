@@ -9,13 +9,14 @@ class SignIn extends React.Component{
                     <div  className="signwindow border border-primary">
                         <form className='p-5'>
                             <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-                                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                                <label htmlFor="exampleInputEmail1">Refugee Id</label>
+                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Like: HG26KJDF"/>
+                                <small id="emailHelp" className="form-text text-muted">Enter Id provided by refugee</small>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                                <label htmlFor="exampleInputPassword1">Authentication Id</label>
+                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Like: LSKDFLDKL.SS"/>
+                                <small id="emailHelp" className="form-text text-muted">Enter authentication id of the Physican</small>
                             </div>
                            
                             <button type="submit" className="btn btn-primary">Submit</button>
