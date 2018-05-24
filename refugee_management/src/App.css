@@ -21,6 +21,17 @@
 .App-intro {
   font-size: large;
 }
+.firstPageButtons{
+  
+  margin:auto;
+  
+}
+.container{
+  /* background-image: url("images/refugee.jpg") */
+}
+body{
+  /* background-image: url("refugee.png") */
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
