@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import SignIn from './SignIn.jsx';
-import RefugeeHome from './refugeeHome.js';
+import RefugeeHome from './refugeeHome.jsx';
 class FrontEndPageButton extends React.Component{
     render(){
         return(
