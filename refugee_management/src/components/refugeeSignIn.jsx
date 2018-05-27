@@ -1,11 +1,14 @@
 import React from 'react';
+import Navbar from './Navbar';
 
 
-class SignIn extends React.Component{
+class RefugeeSignIn extends React.Component{
     render(){
         return(
+            <div className="RefugeeSignIn h-100">
+                <Navbar/>
             <div className='row d-flex justify-content-center h-100'>
-                <div className='col-lg-6 co-sm-12'>
+                <div className='col-lg-6 col-sm-4'>
                     <div  className="signwindow border border-primary">
                         <form className='p-5'>
                             <div className="form-group">
@@ -24,8 +27,9 @@ class SignIn extends React.Component{
                     </div>
                 </div>
             </div>
+            </div>
         );
     }
 }
 
-export default SignIn;
+export default RefugeeSignIn;
