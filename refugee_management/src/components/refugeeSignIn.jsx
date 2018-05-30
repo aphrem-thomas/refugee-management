@@ -7,21 +7,17 @@ class RefugeeSignIn extends React.Component{
         return(
             <div className="RefugeeSignIn h-100">
                 <Navbar/>
-            <div className='row d-flex justify-content-center h-100'>
-                <div className='col-lg-6 col-sm-4'>
-                    <div  className="signwindow border border-primary">
-                        <form className='p-5'>
+                <div className="prescription"></div>
+            <div className='row d-flex justify-content-center h-100 '>
+                <div className='col-lg-6 col-sm-6 h-100'>
+                    <div  className='h-100'>
+                        <form className='signinform p-5'>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Refugee Id</label>
                                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Like: HG26KJDF"/>
-                                <small id="emailHelp" className="form-text text-muted">Enter Id provided by refugee</small>
+                                <small id="emailHelp" className="form-text text-muted">Enter Id provided to the refugee</small>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Authentication Id</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Like: LSKDFLDKL.SS"/>
-                                <small id="emailHelp" className="form-text text-muted">Enter authentication id of the Physican</small>
-                            </div>
-                           
+                            
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </form>
                     </div>

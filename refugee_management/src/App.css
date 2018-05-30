@@ -13,7 +13,9 @@
   padding: 20px;
   color: white;
 }
-
+/* .signinform{
+  margin-top:25vh;
+} */
 .App-title {
   font-size: 1.5em;
 }
@@ -26,16 +28,43 @@
   margin:auto;
   
 }
-.RefugeeSignIn{
+/* .RefugeeSignIn{
    background-image: url("images/refugee_doctor.jpg");
    background-size:contain;
    background-repeat: no-repeat;
    background-size: 100% 100%;
-}
-body{
-  /* background-image: url("refugee.png") */
+} */
+ .cartoonpage{
+  background-image: url("images/medicalcartoon.jpg");
+ 
+
+} 
+
+.tickicon{
+  font-size:45px;
 }
 
+.container{
+  padding: 0%;
+}
+
+.prescription{
+  background-image: url("images/doctor.jpg");
+  background-size:contain;
+  background-repeat: no-repeat;
+  height:35%;
+}
+.scrollablediv{
+  overflow-y: scroll;
+  height:400px;
+}
+.frontpagebuttons{
+  margin-top: 20vh;
+}
+
+.bg-primary-frontpage{
+  background-color:  #3b5998;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
