@@ -7,6 +7,8 @@ import supplysecondpage from './components/supplysecondpage.jsx';
 import RefugeeSignIn from './components/refugeeSignIn.jsx';
 import physicianSignIn from './components/physicianSignIn.jsx';
 import user from './components/userPage.jsx';
+import vendorsignin from './components/vendorSignIn.jsx';
+
 class App extends Component {
  
   render() {
@@ -20,6 +22,7 @@ class App extends Component {
         <Route exact path='/refugeesecondpage/physiciansignin' component={physicianSignIn}/>
         <Route exact path='/refugeesecondpage/refugeesingin/user' component={user}/>
         <Route exact path='/refugeesecondpage/physiciansignin/user' component={physicianSignIn}/>
+        <Route exact path='/supplysecondpage/vendorlogin' component={vendorsignin}/>
       </div>
     );
     

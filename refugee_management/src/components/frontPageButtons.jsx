@@ -20,7 +20,7 @@ class FrontEndPageButton extends React.Component{
                         <Link to='/refugeesecondpage' className='p-1'>
                             <button type="button" className="btn btn-primary btn-lg btn-block">Refugee Management</button>
                         </Link>
-                        <Link to='/supplychain' className='p-1'>
+                        <Link to='/supplysecondpage' className='p-1'>
                             <button type="button" className="btn btn-primary btn-lg btn-block">Supply Chain </button>
                         </Link>
                     </div>
