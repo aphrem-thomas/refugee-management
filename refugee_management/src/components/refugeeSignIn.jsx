@@ -12,6 +12,12 @@ class RefugeeSignIn extends React.Component{
         if( document.getElementById("exampleInputEmail1").value=="1234"){
             this.props.history.push("/refugeesecondpage/refugeesingin/user");
         }
+    //     axios.get("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
+    //         console.log(response.json());
+    //   });
+        fetch("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
+            console.log(response.json());
+      })
     }
     render(){
         return(

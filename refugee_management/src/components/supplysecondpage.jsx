@@ -12,7 +12,7 @@ class Supplysecondpage extends React.Component{
                             <button type="button" className="btn btn-primary btn-lg btn-block">Vendor</button>
                         </Link>
                        
-                        <Link to='/public' className='p-1'>
+                        <Link to='/supplysecondpage/public' className='p-1'>
                             <button type="button" className="btn btn-primary btn-lg btn-block">Public </button>
                         </Link>
                     </div>

@@ -2,6 +2,11 @@ import React from 'react';
 import Navbar from "./Navbar.jsx";
 
 class VendorSignIn extends React.Component{
+    handleClick(e){
+        e.preventDefault();
+        if(document.getElementById("vendorid").value=="abcd" && document.getElementById("vendorpassword").value=="1234" )
+            this.props.history.push("/supplysecondpage/vendorlogin/user");
+    }
     render(){
         return(
             <div>
@@ -12,16 +17,16 @@ class VendorSignIn extends React.Component{
                         <form className='p-5'>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Vendor Id</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Like: HG26KJDF"/>
+                                <input type="email" className="form-control" id="vendorid" aria-describedby="emailHelp" placeholder="Like: HG26KJDF"/>
                                 <small id="emailHelp" className="form-text text-muted">Enter Id provided for user</small>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputPassword1">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Like: LSKDFLDKL.SS"/>
+                                <input type="password" className="form-control" id="vendorpassword" placeholder="Like: LSKDFLDKL.SS"/>
                                 <small id="emailHelp" className="form-text text-muted">Enter password</small>
                             </div>
                            
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                            <button type="submit" onClick={this.handleClick.bind(this)} className="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>

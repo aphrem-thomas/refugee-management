@@ -3,6 +3,7 @@ import mui from 'material-ui';
 import AlarmIcon from 'react-material-icons/icons/action/alarm';
 
 class Vaccinecard extends React.Component{
+
   render() {
     
     return (

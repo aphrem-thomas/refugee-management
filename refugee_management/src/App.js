@@ -8,7 +8,8 @@ import RefugeeSignIn from './components/refugeeSignIn.jsx';
 import physicianSignIn from './components/physicianSignIn.jsx';
 import user from './components/userPage.jsx';
 import vendorsignin from './components/vendorSignIn.jsx';
-
+import Medicaldashboard from './components/medicaldashboard.jsx';
+import Medicalpublic from './components/medicalpublic.jsx';
 class App extends Component {
  
   render() {
@@ -21,8 +22,10 @@ class App extends Component {
         <Route exact path='/refugeesecondpage/refugeesingin' component={RefugeeSignIn}/>
         <Route exact path='/refugeesecondpage/physiciansignin' component={physicianSignIn}/>
         <Route exact path='/refugeesecondpage/refugeesingin/user' component={user}/>
-        <Route exact path='/refugeesecondpage/physiciansignin/user' component={physicianSignIn}/>
+        <Route exact path='/refugeesecondpage/physiciansignin/user' component={user}/>
         <Route exact path='/supplysecondpage/vendorlogin' component={vendorsignin}/>
+        <Route exact path='/supplysecondpage/vendorlogin/user' component={Medicaldashboard}/>
+        <Route exact path='/supplysecondpage/public' component={Medicalpublic}/>
       </div>
     );
     

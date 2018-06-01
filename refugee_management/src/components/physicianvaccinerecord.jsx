@@ -8,7 +8,7 @@ class PhysicianVaccineRecord extends React.Component{
       <div>
         <h2 className="mx-2">Vaccine Record</h2>
         <div className="scrollablediv">
-          <Vaccinecarddoctor view="userview"/>
+          <Vaccinecarddoctor/>
         </div>
       </div>
 

@@ -14,9 +14,6 @@ class SecondPage extends React.Component{
                         <Link to='/refugeesecondpage/physiciansignin' className='p-1'>
                             <button type="button" className="btn btn-primary btn-lg btn-block">Physician</button>
                         </Link>
-                        <Link to='/public' className='p-1'>
-                            <button type="button" className="btn btn-primary btn-lg btn-block">Public </button>
-                        </Link>
                     </div>
                 </div>
             </div>

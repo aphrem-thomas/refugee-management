@@ -3,10 +3,14 @@ import Navbar from './Navbar.jsx'
 
 
 class PhysicianSignIn extends React.Component{
+    handleclick(){
+        this.props.history.push("/refugeesecondpage/physiciansignin/user");
+    }
     render(){
+       
         return(
             <div>
-                <Navbar/>
+                <Navbar title="RMS"/>
             <div className='row d-flex justify-content-center h-100'>
                 <div className='col-lg-6 co-sm-12'>
                     <div>
@@ -44,7 +48,7 @@ class PhysicianSignIn extends React.Component{
                             </select>
                             </div>
                             </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                            <button type="submit" onClick={this.handleclick.bind(this)} className="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>

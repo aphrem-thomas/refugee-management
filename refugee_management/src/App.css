@@ -65,6 +65,16 @@
 .bg-primary-frontpage{
   background-color:  #3b5998;
 }
+
+.addbutton{
+  color: #027424;
+  font-size:50px;
+}
+
+.subbutton{
+  color: #e62107;
+  font-size:50px;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
