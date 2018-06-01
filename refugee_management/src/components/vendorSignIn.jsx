@@ -4,8 +4,9 @@ import Navbar from "./Navbar.jsx";
 class VendorSignIn extends React.Component{
     handleClick(e){
         e.preventDefault();
-        if(document.getElementById("vendorid").value=="abcd" && document.getElementById("vendorpassword").value=="1234" )
-            this.props.history.push("/supplysecondpage/vendorlogin/user");
+        this.props.history.push("/supplysecondpage/vendorlogin/user");
+        // if(document.getElementById("vendorid").value=="abcd" && document.getElementById("vendorpassword").value=="1234" )
+        //     this.props.history.push("/supplysecondpage/vendorlogin/user");
     }
     render(){
         return(

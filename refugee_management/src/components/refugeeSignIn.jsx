@@ -8,16 +8,17 @@ class RefugeeSignIn extends React.Component{
     }
     handleClick(e){
         e.preventDefault();
-        console.log("inside handle click");
-        if( document.getElementById("exampleInputEmail1").value=="1234"){
-            this.props.history.push("/refugeesecondpage/refugeesingin/user");
-        }
-    //     axios.get("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
-    //         console.log(response.json());
-    //   });
-        fetch("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
-            console.log(response.json());
-      })
+        this.props.history.push("/refugeesecondpage/refugeesingin/user");
+    //     console.log("inside handle click");
+    //     if( document.getElementById("exampleInputEmail1").value=="1234"){
+    //         this.props.history.push("/refugeesecondpage/refugeesingin/user");
+    //     }
+    // //     axios.get("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
+    // //         console.log(response.json());
+    // //   });
+    //     // fetch("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
+    //     //     console.log(response.json());
+    //   })
     }
     render(){
         return(
