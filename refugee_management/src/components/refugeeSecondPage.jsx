@@ -9,7 +9,7 @@ class SecondPage extends React.Component{
                 <div className="row d-flex align-items-center h-100">
                     <div className="col-lg-12 col-sm-12 mx-5">
                         <Link to='/refugeesecondpage/refugeesingin' className='p-1'>
-                            <button type="button" className="btn btn-primary btn-lg btn-block">Refugee</button>
+                            <button type="button" className="btn btn-primary btn-lg btn-block">Patient</button>
                         </Link>
                         <Link to='/refugeesecondpage/physiciansignin' className='p-1'>
                             <button type="button" className="btn btn-primary btn-lg btn-block">Physician</button>
