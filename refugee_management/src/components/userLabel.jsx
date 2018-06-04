@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {connect} from 'react-redux';
 
 class UserLable extends React.Component{
   render() {
@@ -14,9 +14,9 @@ class UserLable extends React.Component{
             </div>
             <span className="col-8 col-8">
               <h5 className="card-title"><b>{this.props.cardtitle}</b></h5>
-              <br/><b>Name: </b>{this.props.name}
-              <br/><b>Age: </b>{this.props.age}
-              <br/><b>Gender: </b>{this.props.gender}
+              <br/><b>Name: </b>{this.props.state1.name}
+              <br/><b>Age: </b>{this.props.state1.age}
+              <br/><b>Gender: </b>{this.props.state1.gender}
             </span>
           </div>
         </div>
@@ -26,5 +26,7 @@ class UserLable extends React.Component{
     
   }
 }
-
-export default UserLable;
+function mapStateToProps(state,ownProps){
+  return({state1:state.RefugeeDetails})
+}
+export default connect(mapStateToProps)(UserLable);

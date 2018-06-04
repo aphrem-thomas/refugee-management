@@ -11,7 +11,7 @@ import refugeeUpdate from './components/reducers/reducer_refugee.js'
 import { applyMiddleware } from 'redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import thunk from 'redux-thunk';
-const TheReducer=combineReducers({refugeeUpdate});
+const TheReducer=combineReducers({RefugeeDetails:refugeeUpdate});
 const store= createStore(TheReducer,applyMiddleware(thunk,reduxImmutableStateInvariant()));
 
 ReactDOM.render(
