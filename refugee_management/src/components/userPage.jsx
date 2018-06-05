@@ -15,7 +15,7 @@ class UserPage extends React.Component{
     return (
       <BrowserRouter>
       <div>
-        <UserLabel name="Adam" age="28" gender="Male"/>
+        <UserLabel/>
         <Route exact path='/refugeesecondpage/refugeesingin/user/' component={RecordButton}/>
         <Route exact path='/refugeesecondpage/physiciansignin/user/' component={RecordButtonDoc}/>
         <Route exact path='/refugeesecondpage/refugeesingin/user/usermedicalrecord/' component={UserMedicalRecord}/>
