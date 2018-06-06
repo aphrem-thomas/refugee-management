@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
-
+import logo from "./reach_logo.png";
 import RefugeeHome from './refugeeHome.jsx';
 class FrontEndPageButton extends React.Component{
     render(){
@@ -9,8 +9,8 @@ class FrontEndPageButton extends React.Component{
             <div className='cartoonpage h-100'>
                 <div className="card text-white bg-primary-frontpage mb-3">
                   <div className="card-body">
-                      <h1 className="card-title"><b>REACH</b></h1>
-                      <p className="card-text">REfugee Assistance in Clinics and Hospitals</p>
+                      <div><img src={logo}/> </div>
+                      <p className="card-text"><span className="fontred">RE</span>fugee <span className="fontred">A</span>ssistance in <span className="fontred">C</span>linics and <span className="fontred">H</span>ospitals</p>
                       <p className="card-text">Powered by Blockchain</p>
                     </div>
                   </div>

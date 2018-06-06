@@ -5,6 +5,7 @@ export function refresh(data){
 }
 
 export function fetch(id){
+    console.log("inside fetch");
     return(function(dispatch){
         return axios.get("").then((data)=>{
             dispatch(refresh(data));
@@ -20,7 +21,7 @@ export function updateVaccineRecord(id){
     })
 }
 
-export function updateMedicalRecord(){
+export function updateMedicalRecord(id){
     return(function(dispatch){
         return axios.post("").then(()=>{
             fetch(id);

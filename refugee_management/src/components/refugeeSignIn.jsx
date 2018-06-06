@@ -2,23 +2,37 @@ import React from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
 // import $ from 'jquery';
+import * as actionCreator from './action/actionCreator.js';
+import {connect} from 'react-redux';
 class RefugeeSignIn extends React.Component{
     constructor(props){
         super(props);
     }
     handleClick(e){
         e.preventDefault();
-        this.props.history.push("/refugeesecondpage/refugeesingin/user");
-    //     console.log("inside handle click");
-    //     if( document.getElementById("exampleInputEmail1").value=="1234"){
-    //         this.props.history.push("/refugeesecondpage/refugeesingin/user");
-    //     }
-    // //     axios.get("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
-    // //         console.log(response.json());
-    // //   });
-    //     // fetch("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
-    //     //     console.log(response.json());
-    //   })
+        
+        if( document.getElementById("exampleInputEmail1").value=="adam1234"){
+            this.props.history.push("/refugeesecondpage/refugeesingin/user");
+            this.props.dispatch(actionCreator.fetch("adam1234"));
+        }
+        if( document.getElementById("exampleInputEmail1").value=="david1234"){
+            this.props.history.push("/refugeesecondpage/refugeesingin/user");
+        }
+        if( document.getElementById("exampleInputEmail1").value=="jasmine1234"){
+            this.props.history.push("/refugeesecondpage/refugeesingin/user");
+        }
+        if( document.getElementById("exampleInputEmail1").value=="ali1234"){
+            this.props.history.push("/refugeesecondpage/refugeesingin/user");
+        }
+        if( document.getElementById("exampleInputEmail1").value=="jack1234"){
+            this.props.history.push("/refugeesecondpage/refugeesingin/user");
+        }
+    //     axios.get("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
+    //         console.log(response.json());
+    //   });
+        // fetch("http://trucklease-network.mybluemix.net/getAssetDetails").then(function (response) {
+        //     console.log(response.json());
+      
     }
     render(){
         return(
@@ -45,4 +59,7 @@ class RefugeeSignIn extends React.Component{
     }
 }
 
-export default RefugeeSignIn;
+function mapStateToProps(state,ownProps){
+
+}
+export default connect(mapStateToProps)(RefugeeSignIn);
