@@ -98,14 +98,14 @@ class PhysicianMedicalRecord extends React.Component {
                                     <div className="row mt-3">
                                         <div className="col-12">
                                             <label>Medical Issue</label>
-                                            <input type="email" className="form-control" id="quantity" placeholder="enter hospital name"/>                               
+                                            <input type="email" className="form-control" id="quantity" placeholder="enter the medical issue"/>                               
                                         </div>
                                     </div>
 
                                     <div className="row mt-3">
                                         <div className="col-12">
                                             <label>Prescription</label>
-                                            <input type="email" className="form-control" id="quantity" placeholder="enter hospital name"/>                               
+                                            <input type="email" className="form-control" id="quantity" placeholder="enter prescription"/>                               
                                         </div>
                                     </div>
                                 </form>
