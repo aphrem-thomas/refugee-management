@@ -17,11 +17,11 @@ class UserVaccineRecord extends React.Component {
         <h2 className="mx-2">Vaccine Record</h2>
         <div className="scrollablediv">
           {
-            this.props.state1.vaccinerecord.map((item)=>{
-              if(item.status!=null)
-                  return (<Vaccinecardtick vaccine={item.name} date={item.date} location={item.location} camp={item.camp} />)
-              else
-                  return(<Vaccinecardcross vaccine={item.name} date={item.date} location={item.location} camp={item.camp} />)
+            this.props.state1.vaccinations.map((item)=>{
+              // if(item.status!=null)
+                  return (<Vaccinecardtick vaccine={item.vaccine} date={item.timestamp} />)
+              // else
+              //     return(<Vaccinecardcross vaccine={item.name} date={item.date} location={item.location} camp={item.camp} />)
         })
       }
         </div>

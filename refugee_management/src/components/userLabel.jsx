@@ -14,9 +14,9 @@ class UserLable extends React.Component{
             </div>
             <span className="col-8 col-8">
               <h5 className="card-title"><b>{this.props.cardtitle}</b></h5>
-              <br/><b>Name: </b>{this.props.state1.name}
-              <br/><b>Age: </b>{this.props.state1.age}
-              <br/><b>Gender: </b>{this.props.state1.gender}
+              <br/><b>Name: </b>{this.props.state1.firstName}
+              <br/><b>DOB: </b>{this.props.state1.dob}
+              <br/><b>Gender: </b>{this.props.state1.sex}
             </span>
           </div>
         </div>

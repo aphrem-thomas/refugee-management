@@ -35,9 +35,9 @@
    background-size: 100% 100%;
 } */
  .cartoonpage{
-  background-image: url("images/collage.jpg");
+  /* background-image: url("images/collage.jpg");
  background-size: 200px;
-  background-repeat:no-repeat;
+  background-repeat:no-repeat; */
 
 } 
 .fontred{
@@ -65,7 +65,7 @@
   height:400px;
 }
 .frontpagebuttons{
-  margin-top: 30vh;
+  margin-top:0;
 }
 
 .bg-primary-frontpage{
