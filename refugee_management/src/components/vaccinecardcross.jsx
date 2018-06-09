@@ -3,6 +3,10 @@ import mui from 'material-ui';
 import AlarmIcon from 'react-material-icons/icons/action/alarm';
 
 class Vaccinecard extends React.Component {
+  handleClick(e){
+    e.preventDefault();
+    
+  }
 
   render() {
 
@@ -14,7 +18,10 @@ class Vaccinecard extends React.Component {
         <div className="card-body">
           <h5 className="card-title">Pending</h5>
             <p className="card-text">
-               
+            {
+              this.props.doctor!=null?<button className='btn btn-primary' onClick={this.handleClick.bind(this)}>done</button>:null
+            }
+              
             </p>
           </div>
       </div>

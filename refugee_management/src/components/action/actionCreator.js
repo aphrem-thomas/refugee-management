@@ -20,9 +20,11 @@ export function fetch(id, callback){
     })
 }
 
-export function updateVaccineRecord(id){
+export function updateVaccineRecord(id,data){
     return(function(dispatch){
-        return axios.post("").then(()=>{
+        return axios.post("https://hps-bna-client.mybluemix.net/calltransaction",
+                {params:data}
+    ).then(()=>{
             dispatch(fetch(id));
         })
     })
@@ -110,6 +112,6 @@ export function Syringe(){
     })
 }
 
-export function addSyringe(value){
-
+export function updateDoctor(value){
+    return({"type":"DOC_DTL","payload":value})
 }
