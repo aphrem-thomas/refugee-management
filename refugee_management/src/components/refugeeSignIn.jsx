@@ -25,7 +25,7 @@ class RefugeeSignIn extends React.Component{
             this.props.history.push("/refugeesecondpage/refugeesingin/user");
         }
         if( document.getElementById("exampleInputEmail1").value=="ben1234"){
-            this.props.dispatch(actionCreator.fetch("rf1")).then(()=>{
+            this.props.dispatch(actionCreator.fetch("rf11_Rosanna.Gilbert")).then(()=>{
                 this.props.history.push("/refugeesecondpage/refugeesingin/user");
             });
             
