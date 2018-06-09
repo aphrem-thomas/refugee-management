@@ -26,7 +26,7 @@ class PhysicianSignIn extends React.Component {
             "camp": document.getElementById("sel2").value,
             "date":today.toString()
         }
-        console.log(document.getElementById("refid"));
+        // console.log(document.getElementById("doc"));
         if (document.getElementById("phypwd").value == '1234') {
             this.props.dispatch(actionCreator.fetch(document.getElementById("refid").value)).then(() => {
                 this.props.history.push("/refugeesecondpage/physiciansignin/user");

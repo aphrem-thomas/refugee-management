@@ -17,10 +17,10 @@ class UserVaccineRecord extends React.Component {
     var vaccinedone = [];
     var vaccinenot = [];
     this.props.state1.vaccinationRecords.map((item) => {
-      vaccinedone.push(item.vaccine);
+      vaccinedone.push(item.vaccineName);
     });
+    console.log("vaccine done"+vaccinedone);
     vaccinenot = difference(mandatoryVacc, vaccinedone);
-    console.log(vaccinenot);
     return (
       <div>
         <h2 className="mx-2">Vaccine Record</h2>

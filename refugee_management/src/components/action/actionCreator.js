@@ -22,9 +22,20 @@ export function fetch(id, callback){
 
 export function updateVaccineRecord(id,data){
     return(function(dispatch){
+        console.log("id in updateVaccine"+ id);
         return axios.post("https://hps-bna-client.mybluemix.net/calltransaction",
-                {params:data}
-    ).then(()=>{
+                {
+                    'transactionName':data.transactionName,
+                    'refugee':id,
+                    'doctor':data.doctor,
+                    'vaccine':data.vaccine,
+                    'quantity':data.quantity,
+                    'location': data.location,
+                    'camp': data.camp,
+                    'date': data.date
+                }
+                ).then((res)=>{
+            console.log("response is "+res);
             dispatch(fetch(id));
         })
     })
