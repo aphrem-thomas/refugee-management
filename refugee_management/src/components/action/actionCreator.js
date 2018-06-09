@@ -6,6 +6,7 @@ export function refresh(data){
 }
 
 export function fetch(id, callback){
+    console.log("inside fetch");
     return(function(dispatch){
         return axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{
             params: {
@@ -33,4 +34,82 @@ export function updateMedicalRecord(id){
             dispatch(fetch(id));
         })
     })
+}
+
+
+export function refresh_blood(data){
+    return({'type':"REFRESH_BLOOD", 'payload':data});
+}
+
+export function refresh_syringe(data){
+    return({'type':"REFRESH_SYRINGE", 'payload':data});
+}
+
+export function refresh_vaccine(data){
+    return({'type':"REFRESH_VACCINE", 'payload':data});
+}
+
+export function refresh_medicine(data){
+    return({'type':"REFRESH_MEDICINE", 'payload':data});
+}
+
+export function blood(){
+    return(function(dispatch){
+        return axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{
+            params: {
+                param0: 'Blood',
+                param1:'all'
+            }
+          }).then((response)=>{
+        console.log(response.data);    
+        dispatch(refresh_blood(response.data));
+        }).catch((error)=>{throw(error);});
+    })
+
+}
+
+export function Vaccine(){
+    return(function(dispatch){
+        return axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{
+            params: {
+                param0: 'Vaccine',
+                param1:'all'
+            }
+          }).then((response)=>{
+        console.log(response.data);    
+        dispatch(refresh_blood(response.data));
+        }).catch((error)=>{throw(error);});
+    })
+}
+
+export function Medicine(){
+    return(function(dispatch){
+        return axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{
+            params: {
+                param0: 'Medicine',
+                param1:'all'
+            }
+          }).then((response)=>{
+        console.log(response.data);    
+        dispatch(refresh_blood(response.data));
+        }).catch((error)=>{throw(error);});
+    })
+}
+
+export function Syringe(){
+    return(function(dispatch){
+        return axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{
+            params: {
+                param0: 'Syringe',
+                param1:'all'
+            }
+          }).then((response)=>{
+        console.log(response.data);    
+        dispatch(refresh_blood(response.data));
+        }).catch((error)=>{throw(error);});
+    })
+}
+
+export function addSyringe(value){
+
 }

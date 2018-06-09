@@ -28,7 +28,7 @@ class UserVaccineRecord extends React.Component {
 
           {
             this.props.state1.vaccinationRecords.map((item) => {
-              return (<Vaccinecardtick vaccine={item.vaccine} date={item.timestamp} />)
+              return (<Vaccinecardtick vaccine={item.vaccineName} date={item.date} location={item.location} camp={item.camp}/>)
             })
           }
           {

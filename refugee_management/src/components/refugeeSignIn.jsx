@@ -37,7 +37,7 @@ class RefugeeSignIn extends React.Component{
         return(
             <div className="RefugeeSignIn h-100">
                 <Navbar title="RMS"/>
-                <div className="prescription"></div>
+                <div className="prescription d-flex justify-content-center"></div>
             <div className='row d-flex justify-content-center h-100 '>
                 <div className='col-lg-6 col-sm-6 h-100'>
                     <div  className='h-100'>

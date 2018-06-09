@@ -1,10 +1,17 @@
 import React from 'react';
-import Navbar from './Navbar.jsx'
-
+import Navbar from './Navbar.jsx';
+import * as actionCreator from './action/actionCreator.js';
+import {connect} from 'react-redux';
 
 class PhysicianSignIn extends React.Component{
-    handleclick(){
-        this.props.history.push("/refugeesecondpage/physiciansignin/user");
+    handleclick(e){
+        e.preventDefault();
+        console.log(document.getElementById("refid"));
+        if(document.getElementById("phypwd").value=='1234'){
+            this.props.dispatch(actionCreator.fetch(document.getElementById("refid").value)).then(()=>{
+                this.props.history.push("/refugeesecondpage/physiciansignin/user");
+            });
+        }
     }
     render(){
        
@@ -17,17 +24,17 @@ class PhysicianSignIn extends React.Component{
                         <form className='p-5'>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Physician Id</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Like: HG26KJDF"/>
+                                <input type="text" className="form-control" id="phyid" aria-describedby="emailHelp" placeholder="Like: HG26KJDF"/>
                                 <small id="emailHelp" className="form-text text-muted">Enter Id of physician </small>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputPassword1">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Like: LSKDFLDKL.SS"/>
+                                <input type="password" className="form-control" id="phypwd" placeholder="Like: LSKDFLDKL.SS"/>
                                 <small id="emailHelp" className="form-text text-muted">Enter password of physican</small>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Refugee Id</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Like: LSKDFLDKL.SS"/>
+                                <label htmlFor="exampleInputPassword2">Refugee Id</label>
+                                <input type="text" className="form-control" id="refid" placeholder="Like: LSKDFLDKL.SS"/>
                                 <small id="emailHelp" className="form-text text-muted">Enter Id of Refugee</small>
                             </div>
                             <div className='row'>
@@ -42,13 +49,13 @@ class PhysicianSignIn extends React.Component{
                             </div>
                             <div className="form-group col-6">
                             <label for="sel1">Camp</label>
-                            <select className="form-control" id="sel1">
+                            <select className="form-control" id="sel2">
                                 <option>Aleppo:A</option>
                                 <option>Demascus:B</option>
                             </select>
                             </div>
                             </div>
-                            <button type="submit" onClick={this.handleclick.bind(this)} className="btn btn-primary">Submit</button>
+                            <button type="button" onClick={this.handleclick.bind(this)} className="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -58,4 +65,8 @@ class PhysicianSignIn extends React.Component{
     }
 }
 
-export default PhysicianSignIn;
+function mapStateToProps(state,ownProps){
+
+}
+
+export default connect(mapStateToProps)(PhysicianSignIn);
