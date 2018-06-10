@@ -81,7 +81,7 @@ export function refresh_medicine(data){
     return({'type':"REFRESH_MEDICINE", 'payload':data});
 }
 
-export function blood(){
+export function Blood(){
     return(function(dispatch){
         return axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{
             params: {
@@ -161,4 +161,26 @@ export function fetchVendor(id){
     })
         
     }
+}
+
+
+export function addAsset(data){
+    console.log("inside addAsset checking "+data.quantity);
+    return function(dispatch){
+    return axios.post("https://hps-bna-client.mybluemix.net/calltransaction?",{
+        'transactionName':data.transactionName,
+        'assetId':data.assetId,
+        'rep':data.rep,
+        'quantity': data.quantity
+      }
+      
+    ).then(()=>{
+        switch(data.transactionName){
+            case 'SupplyBlood':return dispatch(Blood());break;
+            case 'SupplyMedicine':return dispatch(Medicine());break;
+            case 'SupplyVaccine':return dispatch(Vaccine());break;
+            case 'SupplySyringe':return dispatch(Syringe());break;
+        }
+    })
+}
 }
