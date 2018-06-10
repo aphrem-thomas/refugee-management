@@ -1,7 +1,26 @@
 import React from 'react';
+import {connect}from 'react-redux';
+import * as actionCreator from './action/actionCreator.js';
 
 
 class PhysicianMedicalRecord extends React.Component {
+    clickHandler(e){
+        e.preventDefault();
+      
+        let data={
+            "refugee":this.props.Ref.refugeeId,
+            "doctor":this.props.Doc.name,
+            "date": this.props.Doc.date,
+            "hospital":document.getElementById("hospname").value,
+            "issue": document.getElementById("issue").value,
+            "admitDate":document.getElementById("admitdate").value,
+            "dischargeDate":document.getElementById("releasedate").value,
+            "treatment": "",
+            "prescription":document.getElementById("presc").value
+          
+        }
+        this.props.dispatch(actionCreator.updateMedicalRecord(this.props.Ref.refugeeId,data));
+    }
     render() {
 
         return (
@@ -10,7 +29,7 @@ class PhysicianMedicalRecord extends React.Component {
                 <div className="scrollablediv">
                     <div className="p-2">
                         <table class="table">
-                            <caption>List of available medical items</caption>
+        
                             <thead>
                                 <tr>
                                     <th scope="col">Date</th>
@@ -23,42 +42,21 @@ class PhysicianMedicalRecord extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>12/31/2017</td>
-                                    <td>Red Cresent Aleppo</td>
-                                    <td>Feaver</td>
-                                    <td>Manuel</td>
-                                    <td>Nil</td>
-                                    <td>Nil</td>
-                                    <td>Parcetamol</td>
-                                </tr>
-                                <tr>
-                                    <td>03/8/2017</td>
-                                    <td>Red Cresent Demascus</td>
-                                    <td>Feaver</td>
-                                    <td>Yakub</td>
-                                    <td>2/5/2017</td>
-                                    <td>3/8/2017</td>
-                                    <td>Nil</td>
-                                </tr>
-                                <tr>
-                                    <td>03/2/2017</td>
-                                    <td>Red Cresent Antioch</td>
-                                    <td>Feaver</td>
-                                    <td>David</td>
-                                    <td>Nil</td>
-                                    <td>Nil</td>
-                                    <td>Parcetamol</td>
-                                </tr>
-                                <tr>
-                                    <td>02/1/2017</td>
-                                    <td>Red Cresent Antioch</td>
-                                    <td>Feaver</td>
-                                    <td>David</td>
-                                    <td>Nil</td>
-                                    <td>Nil</td>
-                                    <td>Parcetamol</td>
-                                </tr>
+                            {this.props.Ref.medicalRecords.map((item) => {
+                                    let doc = item.physician.split('#');
+                                    return (
+                                        <tr>
+                                            <td>{item.date}</td>
+                                            <td>{item.hospital}</td>
+                                            <td>{item.issue}</td>
+                                            <td>{doc[1]}</td>
+                                            <td>{item.admitDate}</td>
+                                            <td>{item.dischargeDate}</td>
+                                            <td>{item.prescription}</td>
+                                        </tr>
+                                    );
+                                })}
+
                             </tbody>
                         </table>
                     </div>
@@ -83,7 +81,7 @@ class PhysicianMedicalRecord extends React.Component {
                                     <div className="row">
                                         <div className="col-12">
                                             <label>hospital name</label>
-                                            <input type="email" className="form-control" id="quantity" placeholder="enter hospital name"/>                               
+                                            <input type="text" className="form-control" id="hospname" placeholder="enter hospital name"/>                               
                                         </div>
                                     </div>
                                     <div className="row mt-3">
@@ -93,26 +91,26 @@ class PhysicianMedicalRecord extends React.Component {
                                         </div>
                                         <div className="col-6">
                                             <label>release date</label>
-                                            <input type="date" className="form-control" id="quantity" placeholder="release date"/>                                        </div>
+                                            <input type="date" className="form-control" id="releasedate" placeholder="release date"/>                                        </div>
                                     </div>
                                     <div className="row mt-3">
                                         <div className="col-12">
                                             <label>Medical Issue</label>
-                                            <input type="email" className="form-control" id="quantity" placeholder="enter the medical issue"/>                               
+                                            <input type="text" className="form-control" id="issue" placeholder="enter the medical issue"/>                               
                                         </div>
                                     </div>
 
                                     <div className="row mt-3">
                                         <div className="col-12">
                                             <label>Prescription</label>
-                                            <input type="email" className="form-control" id="quantity" placeholder="enter prescription"/>                               
+                                            <input type="text" className="form-control" id="presc" placeholder="enter prescription"/>                               
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" onClick={this.clickHandler.bind(this)} data-dismiss="modal" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>
@@ -124,4 +122,7 @@ class PhysicianMedicalRecord extends React.Component {
     }
 }
 
-export default PhysicianMedicalRecord;
+function mapStateToProps(state,ownProps){
+    return({Ref:state.RefugeeDetails, Doc:state.DoctorDetails})
+}
+export default connect(mapStateToProps)(PhysicianMedicalRecord);

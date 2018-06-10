@@ -41,9 +41,24 @@ export function updateVaccineRecord(id,data){
     })
 }
 
-export function updateMedicalRecord(id){
+export function updateMedicalRecord(id,data){
+    console.log("checking data "+ data.refugee);
     return(function(dispatch){
-        return axios.post("").then(()=>{
+        return axios.post("https://hps-bna-client.mybluemix.net/calltransaction",
+        {
+            "transactionName":"Treatment",
+            "refugee":data.refugee,
+            "doctor":data.doctor,
+            "date": data.date,
+            "hospital":data.hospital,
+            "issue": data.issue,
+            "treatment": data.treatment,
+            "prescription":data.prescription,
+            "admitDate":data.admitDate,
+            "dischargeDate":data.dischargeDate
+          }
+          
+    ).then(()=>{
             dispatch(fetch(id));
         })
     })

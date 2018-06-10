@@ -9,8 +9,7 @@ class Vaccinecard extends React.Component {
     e.preventDefault();
    
         //console.log("data in vaccineCardCross"+data);
-        axios.post("https://hps-bna-client.mybluemix.net/calltransaction",{
-                Params:{
+                let data={
                   transactionName:"Vaccination",
                   refugee:this.props.Ref.refugeeId,
                   doctor:this.props.doctor,
@@ -19,10 +18,9 @@ class Vaccinecard extends React.Component {
                   location: this.props.location,
                   camp: this.props.camp,
                   date: this.props.date
-                }}
-                ).then((res)=>{
-            console.log("response is "+res)})
-    //this.props.dispatch(actionCreator.updateVaccineRecord(this.props.Ref.refugeeId,data));
+                }
+               
+    this.props.dispatch(actionCreator.updateVaccineRecord(this.props.Ref.refugeeId,data));
   }
   
   render() {
