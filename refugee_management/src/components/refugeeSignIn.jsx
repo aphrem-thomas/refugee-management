@@ -10,28 +10,10 @@ class RefugeeSignIn extends React.Component{
     }
     handleClick(e){
         e.preventDefault();
-        
-        if( document.getElementById("exampleInputEmail1").value=="adam1234"){
+
+        this.props.dispatch(actionCreator.fetch(document.getElementById("exampleInputEmail1").value)).then(()=>{
             this.props.history.push("/refugeesecondpage/refugeesingin/user");
-            this.props.dispatch(actionCreator.fetch("adam1234"));
-        }
-        if( document.getElementById("exampleInputEmail1").value=="david1234"){
-            this.props.history.push("/refugeesecondpage/refugeesingin/user");
-        }
-        if( document.getElementById("exampleInputEmail1").value=="jasmine1234"){
-            this.props.history.push("/refugeesecondpage/refugeesingin/user");
-        }
-        if( document.getElementById("exampleInputEmail1").value=="ali1234"){
-            this.props.history.push("/refugeesecondpage/refugeesingin/user");
-        }
-        if( document.getElementById("exampleInputEmail1").value=="ben1234"){
-            this.props.dispatch(actionCreator.fetch("rf11_Rosanna.Gilbert")).then(()=>{
-                this.props.history.push("/refugeesecondpage/refugeesingin/user");
-            });
-            
-            
-        }
-   
+        });
     }
     render(){
         return(
