@@ -2,13 +2,14 @@ import React from 'react';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import SignIn from './vendorSignIn.jsx';
 import RefugeeHome from './refugeeHome.jsx';
+import {connect} from 'react-redux';
 class Medicaldashboard extends React.Component{
     render(){
         return(
             <div>
                 <div className="card text-white bg-primary-frontpage mb-3">
                   <div className="card-body">
-                      <h1 className="card-title">John</h1>
+                      <h1 className="card-title">{this.props.Vendor.firstName}</h1>
                       <p className="card-text">You can add the detail using + button and remove using - button</p>
                     </div>
                    
@@ -19,7 +20,7 @@ class Medicaldashboard extends React.Component{
                 <div className="row">
                 <div className="col-12">
                     <h3>Select the item</h3>
-                    <select class="form-control form-control-lg">
+                    <select className="form-control form-control-lg">
                         <option>Syringe</option>
                         <option>Blood</option>
                         <option>Polio Vaccine</option>
@@ -50,4 +51,10 @@ class Medicaldashboard extends React.Component{
     }
 }
 
-export default Medicaldashboard;
+function mapStateToProps(state,ownProps){
+    return({
+        Vendor:state.VendorDetails
+    })
+}
+
+export default connect(mapStateToProps)(Medicaldashboard);

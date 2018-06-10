@@ -1,10 +1,16 @@
 import React from 'react';
 import Navbar from "./Navbar.jsx";
+import {connect} from 'react-redux';
+import * as actionCreator from './action/actionCreator.js'
 
 class VendorSignIn extends React.Component{
     handleClick(e){
         e.preventDefault();
-        this.props.history.push("/supplysecondpage/vendorlogin/user");
+        console.log(document.getElementById("vendorid").value);
+        this.props.dispatch(actionCreator.fetchVendor(document.getElementById("vendorid").value)).then(()=>{
+            this.props.history.push("/supplysecondpage/vendorlogin/user");
+        })
+        
         // if(document.getElementById("vendorid").value=="abcd" && document.getElementById("vendorpassword").value=="1234" )
         //     this.props.history.push("/supplysecondpage/vendorlogin/user");
     }
@@ -17,12 +23,12 @@ class VendorSignIn extends React.Component{
                     <div>
                         <form className='p-5'>
                             <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Vendor Id</label>
-                                <input type="email" className="form-control" id="vendorid" aria-describedby="emailHelp" placeholder="Like: HG26KJDF"/>
+                                <label htmlFor="vendorid">Vendor Id</label>
+                                <input type="text" className="form-control" id="vendorid" aria-describedby="emailHelp" placeholder="Like: HG26KJDF"/>
                                 <small id="emailHelp" className="form-text text-muted">Enter Id provided for user</small>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <label htmlFor="vendorpwd">Password</label>
                                 <input type="password" className="form-control" id="vendorpassword" placeholder="Like: LSKDFLDKL.SS"/>
                                 <small id="emailHelp" className="form-text text-muted">Enter password</small>
                             </div>
@@ -37,4 +43,9 @@ class VendorSignIn extends React.Component{
     }
 }
 
-export default VendorSignIn;
+function mapStateToProps(state,ownProps){
+    return{
+
+    }
+}
+export default connect(mapStateToProps)(VendorSignIn);

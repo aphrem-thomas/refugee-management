@@ -141,3 +141,24 @@ export function Syringe(){
 export function updateDoctor(value){
     return({"type":"DOC_DTL","payload":value})
 }
+
+export function vendorDetails(data){
+    return({type:'REFRESH_VENDOR',payload:data});
+}
+
+
+export function fetchVendor(id){
+    console.log("id is "+id);
+    return function(dispatch){
+       return axios.get("https://hps-bna-client.mybluemix.net/getParticipantDetails",{
+        params:{param0:'MedicalRepresentative',
+                param1:id
+            }}
+    ).then((response)=>{
+        dispatch(vendorDetails(response.data));
+    }).catch((error)=>{
+        console.log(error);
+    })
+        
+    }
+}

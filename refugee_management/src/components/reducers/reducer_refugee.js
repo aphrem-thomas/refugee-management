@@ -20,3 +20,4 @@ export function doctorDetails(state=docState,action){
         default:return state;
     }
 }
+
