@@ -27,12 +27,17 @@ class PhysicianSignIn extends React.Component {
             "date":today.toString()
         }
         // console.log(document.getElementById("doc"));
-        if (document.getElementById("phypwd").value == '1234') {
+        let pid=document.getElementById("phyid").value;
+        let ppwd=document.getElementById("phypwd").value;
+        if (ppwd == '1234'&& (pid=="Dr_Venkata.Mamidanna"||pid=="Dr_Ambuj.Sinha"||pid=="Dr_Vyshak.Iyengar"||pid=="Dr_Aphrem.Thomas")) {
             this.props.dispatch(actionCreator.fetch(document.getElementById("refid").value)).then(() => {
                 this.props.history.push("/refugeesecondpage/physiciansignin/user");
                 //console.log(doc);
                 this.props.dispatch(actionCreator.updateDoctor(doc));
             });
+        }
+        else{
+            alert("enter correct credentials");
         }
     }
     render() {

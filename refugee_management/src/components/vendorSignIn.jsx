@@ -6,10 +6,13 @@ import * as actionCreator from './action/actionCreator.js'
 class VendorSignIn extends React.Component{
     handleClick(e){
         e.preventDefault();
-        console.log(document.getElementById("vendorid").value);
+        
+        let pid=document.getElementById("vendorid").value;;
+        let ppwd=document.getElementById("vendorpassword").value;
+        if (ppwd == '1234'&& (pid=="MR_Maria.Jones"||pid=="MR_Jonathan.Lyod")) {  
         this.props.dispatch(actionCreator.fetchVendor(document.getElementById("vendorid").value)).then(()=>{
             this.props.history.push("/supplysecondpage/vendorlogin/user");
-        })
+        })}
         
         // if(document.getElementById("vendorid").value=="abcd" && document.getElementById("vendorpassword").value=="1234" )
         //     this.props.history.push("/supplysecondpage/vendorlogin/user");

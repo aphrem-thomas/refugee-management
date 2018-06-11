@@ -13,7 +13,7 @@ class UserVaccineRecord extends React.Component {
 
   render() {
     var mandatoryVacc = [
-      "PNEUMOCOCCAL", "DEPTERIA", "ROTAVIRUS", "MMR", "HPV", "TDAP", "MEASLES", "MUMPS", "HEPATITISA", "HEPATITISB", "POLIO"];
+      "DEPTERIA", "ROTAVIRUS", "MMR", "HPV", "TDAP", "MEASLES", "MUMPS", "HEPATITISA", "HEPATITISB", "POLIO"];
     var vaccinedone = [];
     var vaccinenot = [];
     this.props.state1.vaccinationRecords.map((item) => {

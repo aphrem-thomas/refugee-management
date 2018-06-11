@@ -62,7 +62,7 @@ class PhysicianMedicalRecord extends React.Component {
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" className="btn btn-primary mx-2" data-toggle="modal" data-target="#exampleModal">
                     Add
                 </button>
 
