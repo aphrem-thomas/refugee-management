@@ -168,10 +168,10 @@ export function addAsset(data){
     console.log("inside addAsset checking "+data.quantity);
     return function(dispatch){
     return axios.post("https://hps-bna-client.mybluemix.net/calltransaction?",{
-        'transactionName':data.transactionName,
-        'assetId':data.assetId,
-        'rep':data.rep,
-        'quantity': data.quantity
+        transactionName:data.transactionName,
+        assetId:data.assetId,
+        rep:data.rep,
+        quantity:Number(data.quantity)
       }
       
     ).then(()=>{
