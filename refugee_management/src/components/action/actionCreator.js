@@ -89,7 +89,7 @@ export function Blood(){
                 param1:'all'
             }
           }).then((response)=>{
-        console.log(response.data);    
+            console.log("response data received blood "+JSON.stringify(response.data));     
         dispatch(refresh_blood(response.data));
         }).catch((error)=>{throw(error);});
     })
@@ -105,7 +105,7 @@ export function Vaccine(){
             }
           }).then((response)=>{
         console.log(response.data);    
-        dispatch(refresh_blood(response.data));
+        dispatch(refresh_vaccine(response.data));
         }).catch((error)=>{throw(error);});
     })
 }
@@ -118,8 +118,8 @@ export function Medicine(){
                 param1:'all'
             }
           }).then((response)=>{
-        console.log(response.data);    
-        dispatch(refresh_blood(response.data));
+        console.log("response data received medicine "+JSON.stringify(response.data));    
+        dispatch(refresh_medicine(response.data));
         }).catch((error)=>{throw(error);});
     })
 }
@@ -133,7 +133,7 @@ export function Syringe(){
             }
           }).then((response)=>{
         console.log(response.data);    
-        dispatch(refresh_blood(response.data));
+        dispatch(refresh_syringe(response.data));
         }).catch((error)=>{throw(error);});
     })
 }
@@ -168,10 +168,10 @@ export function addAsset(data){
     console.log("inside addAsset checking "+data.quantity);
     return function(dispatch){
     return axios.post("https://hps-bna-client.mybluemix.net/calltransaction?",{
-        'transactionName':data.transactionName,
-        'assetId':data.assetId,
-        'rep':data.rep,
-        'quantity': data.quantity
+        transactionName:data.transactionName,
+        assetId:data.assetId,
+        rep:data.rep,
+        quantity:Number(data.quantity)
       }
       
     ).then(()=>{
@@ -184,3 +184,4 @@ export function addAsset(data){
     })
 }
 }
+

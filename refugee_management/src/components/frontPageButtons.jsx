@@ -16,7 +16,7 @@ class FrontEndPageButton extends React.Component{
                     </div>
                   </div>
                   <div className="row d-flex justify-content-center">
-                      <img src={collage} height="350" width="350"/>
+                      <img src={collage} height="300" width="350"/>
                     </div>
             <div className="frontpagebuttons h-100">
                 <div>
