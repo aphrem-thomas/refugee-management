@@ -4,10 +4,12 @@ import SignIn from './vendorSignIn.jsx';
 import RefugeeHome from './refugeeHome.jsx';
 import {connect} from 'react-redux';
 import * as actionCreator from './action/actionCreator.js';
+
 class Supplysecondpage extends React.Component{
     onClick(e){
         e.preventDefault();
-        this.props.history.push("/supplysecondpage/public");       
+        this.props.dispatch(actionCreator.Blood()).then(()=>{this.props.history.push("/supplysecondpage/public");})
+               
     }
     render(){
         return(
@@ -27,5 +29,7 @@ class Supplysecondpage extends React.Component{
         );
     }
 }
-function mapStateToProps(state,ownProps){}
+function mapStateToProps(state,ownProps){
+    return({Blood:state.BloodDetails});
+}
 export default connect(mapStateToProps)(Supplysecondpage);
