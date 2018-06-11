@@ -32,33 +32,25 @@ class Medicaldashboard extends React.Component {
             case 'Blood': {
                 data.transactionName = "SupplyBlood";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
-                    return(<div class="alert alert-primary" role="alert">
-                    sucessfully updated.
-                  </div>)
+                    alert("sucessfully updated.");
                 })
             }; break;
-            case 'Meidicine': {
+            case 'Medicine': {
                 data.transactionName = "SupplyMedicine";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
-                    return(<div class="alert alert-primary" role="alert">
-                    sucessfully updated.
-                  </div>)
+                    alert("sucessfully updated.");
                 })
             }; break;
             case 'Vaccine': {
                 data.transactionName = "SupplyVaccine";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
-                    return(<div class="alert alert-primary" role="alert">
-                    sucessfully updated.
-                  </div>)
+                    alert("sucessfully updated.");
                 })
             }; break;
             case 'Syringe': {
                 data.transactionName = "SupplySyringe";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
-                    return(<div class="alert alert-primary" role="alert">
-                    sucessfully updated.
-                  </div>)
+                    alert("sucessfully updated.");
                 })
             }; break;
 
@@ -82,33 +74,25 @@ class Medicaldashboard extends React.Component {
             case 'Blood': {
                 data.transactionName = "SupplyBlood";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
-                    return(<div class="alert alert-primary" role="alert">
-                    sucessfulle updated.
-                  </div>)
+                    alert("sucessfully updated.");
                 })
             }; break;
             case 'Meidicine': {
                 data.transactionName = "SupplyMedicine";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
-                    return(<div class="alert alert-primary" role="alert">
-                    sucessfulle updated.
-                  </div>)
+                    alert("sucessfully updated.");
                 })
             }; break;
             case 'Vaccine': {
                 data.transactionName = "SupplyVaccine";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
-                    return(<div class="alert alert-primary" role="alert">
-                    sucessfulle updated.
-                  </div>)
+                    alert("sucessfully updated.");
                 })
             }; break;
             case 'Syringe': {
                 data.transactionName = "SupplySyringe";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
-                    return(<div class="alert alert-primary" role="alert">
-                    sucessfulle updated.
-                  </div>)
+                    alert("sucessfully updated.");
                 })
             }; break;
 
@@ -152,7 +136,7 @@ class Medicaldashboard extends React.Component {
         if (opt == "Vaccine") {
             this.props.dispatch(actionCreator.Vaccine()).then(() => {
                 let temp = [];
-                this.props.Blood.map((item) => {
+                this.props.Vaccine.map((item) => {
                     let thing = { "item": null, "quantity": null };
                     thing.item = item.vaccinationType;
                     thing.quantity = item.quantity;
@@ -166,7 +150,7 @@ class Medicaldashboard extends React.Component {
         if (opt == "Syringe") {
             this.props.dispatch(actionCreator.Syringe()).then(() => {
                 let temp = [];
-                this.props.Blood.map((item) => {
+                this.props.Syringe.map((item) => {
                     let thing = { "item": null, "quantity": null };
                     thing.item = item.syringeType;
                     thing.quantity = item.quantity;
@@ -215,7 +199,7 @@ class Medicaldashboard extends React.Component {
                         </div>
                         <div className="row mt-2">
                             <div className="col-8">
-                                <select className="form-control form-control-lg" id="selectsub" onChange={this.onChangeSub}>
+                                <select className="form-control form-control-lg" id="selectsub" onChange={this.onChangeSub.bind(this)}>
                                     {this.state.sublist.map((list, i) => {
                                         console.log(list.quantity);
                                         return (<option key={i}>{list.item}</option>)

@@ -1,13 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import * as actionCreator from './action/actionCreator.js';
 
 class MedicineTable extends React.Component{
     constructor(props){
         super(props);
+        
+        this.state={"MedicineList":[]};
+        this.props.dispatch(actionCreator.Medicine()).then(()=>{
+            this.setState({MedicineList:this.props.Medicine})
+        })
     }
+   
     render(){
         return(
-            <div className='row d-flex justify-content-center align-items-center h-100 p-5'>
+            <div className='row d-flex justify-content-center align-items-center p-5'>
                     <table className="table">
                         <thead>
                             <tr>
@@ -17,8 +24,7 @@ class MedicineTable extends React.Component{
                             </tr>
                         </thead>
                         <tbody>
-                        {this.props.Medicine.map((item,i)=>{
-                                console.log(item);
+                        {this.state.MedicineList.map((item,i)=>{
                                 return(<tr key={i}>
                                             <td>Medicine</td>
                                             <td>{item.medicineName}</td>

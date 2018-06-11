@@ -1,13 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import * as actionCreator from './action/actionCreator.js';
 
 class BloodTable extends React.Component{
     constructor(props){
         super(props);
+        this.state={"BloodList":[]};
+        this.props.dispatch(actionCreator.Blood()).then(()=>{
+            this.setState({BloodList:this.props.Blood})
+        })
     }
     render(){
         return(
-            <div className='row d-flex justify-content-center align-items-center h-100 p-5'>
+            <div className='row d-flex justify-content-center align-items-center p-5'>
                     <table className="table">
                         <thead>
                             <tr>
@@ -17,8 +22,7 @@ class BloodTable extends React.Component{
                             </tr>
                         </thead>
                         <tbody>
-                        {this.props.Blood.map((item,i)=>{
-                                console.log(item);
+                        {this.state.BloodList.map((item,i)=>{
                                 return(<tr key={i}>
                                             <td>Blood</td>
                                             <td>{item.bloodType}</td>
