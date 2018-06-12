@@ -61,7 +61,7 @@ class UserMedicalRecord extends React.Component {
                         </table>
                     </div>
                 </div>
-                <button disabled={this.state.btnstate} className="btn btn-primary mx-3" onClick={this.onClick.bind(this)}>Refresh</button>
+                {/* <button disabled={this.state.btnstate} className="btn btn-primary mx-3" onClick={this.onClick.bind(this)}>Refresh</button> */}
             </div>
 
         );
@@ -69,10 +69,13 @@ class UserMedicalRecord extends React.Component {
     }
 
     componentDidMount(){
-        setTimeout(()=>{
+        this.intervalvariable=setInterval(()=>{
             this.props.dispatch(actionCreator.fetch(this.props.state1.refugeeId))
-    }),2000
+    },5000)
 }
+    componentWillUnmount(){
+        clearInterval(this.intervalvariable);
+    }
 
 }
 
