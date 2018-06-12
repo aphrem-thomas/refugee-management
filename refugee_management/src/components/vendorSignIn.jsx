@@ -17,9 +17,13 @@ class VendorSignIn extends React.Component{
         // if(document.getElementById("vendorid").value=="abcd" && document.getElementById("vendorpassword").value=="1234" )
         //     this.props.history.push("/supplysecondpage/vendorlogin/user");
     }
+    moveBack(e){
+        this.props.history.push("/supplysecondpage");
+    }
     render(){
         return(
             <div>
+                <button className="btn btn-light mx-3 mt-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 <Navbar title={"Medical Supply"}/>
             <div className='row d-flex justify-content-center align-items-center h-100'>
                 <div className='col-lg-6 co-sm-12'>

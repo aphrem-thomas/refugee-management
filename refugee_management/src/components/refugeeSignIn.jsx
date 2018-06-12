@@ -15,9 +15,13 @@ class RefugeeSignIn extends React.Component{
             this.props.history.push("/refugeesecondpage/refugeesingin/user");
         });
     }
+    moveBack(e){
+        this.props.history.push("/refugeesecondpage");
+    }
     render(){
         return(
             <div className="RefugeeSignIn h-100">
+            <button className="btn btn-light mt-2 mx-2" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 <Navbar title="RMS"/>
                 <div className="prescription d-flex justify-content-center"></div>
             <div className='row d-flex justify-content-center h-100 '>

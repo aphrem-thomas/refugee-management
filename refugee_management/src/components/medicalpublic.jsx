@@ -17,11 +17,15 @@ class Medicalpublic extends React.Component {
             "MedicineState": [], "VaccineState": [], "SyringeState": []
         }
     }
+    moveBack(e){
+        this.props.history.push("/supplysecondpage");
+    }
     
     render() {
         return (
             <BrowserRouter>
                 <div>
+                <button className="btn btn-light m-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                     <Navbar title={"Medical Supply"} />
                     <div className="mt-2">
                     <button className="btn btn-outline-primary mx-1"><Link to='/supplysecondpage/public/'>Blood</Link></button>

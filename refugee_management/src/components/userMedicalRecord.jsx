@@ -1,8 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import * as actionCreator from './action/actionCreator.js';
 
 class UserMedicalRecord extends React.Component {
+    constructor(props){
+        super(props);
+        this.state={"btnstate":false}
+    }
+    onClick(){
+        this.setState({btnstate:true})
+        this.props.dispatch(actionCreator.fetch(this.props.state1.refugeeId)).then(()=>{
+            this.setState({btnstate:false});
+        })
+    }
     render() {
 
         return (
@@ -24,10 +34,10 @@ class UserMedicalRecord extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.state1.medicalRecords.map((item) => {
+                                {this.props.state1.medicalRecords.map((item,i) => {
                                     let doc = item.physician.split('#');
                                     return (
-                                        <tr>
+                                        <tr key={i}>
                                             <td>{item.date}</td>
                                             <td>{item.hospital}</td>
                                             <td>{item.issue}</td>
@@ -44,11 +54,19 @@ class UserMedicalRecord extends React.Component {
                         </table>
                     </div>
                 </div>
+                <div><button disabled={this.state.btnstate} className="btn btn-primary" onClick={this.onClick.bind(this)}>Refresh</button></div>
             </div>
 
         );
 
     }
+
+    componentDidMount(){
+        setTimeout(()=>{
+            this.props.dispatch(actionCreator.fetch(this.props.state1.refugeeId))
+    }),2000
+}
+
 }
 
 function mapStateToProps(state, ownProps) {

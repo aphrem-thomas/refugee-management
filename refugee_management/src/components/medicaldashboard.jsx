@@ -223,7 +223,8 @@ class Medicaldashboard extends React.Component {
             <div>
                 <div className="card text-white bg-primary-frontpage mb-3">
                     <div className="card-body">
-                        <h1 className="card-title">{this.props.Vendor.firstName}</h1>
+                        <h1 className="card-title">Medical Inventory Dashboard</h1>
+                        <h3 className="fontred"> Welcome <div className="fontred">{this.props.Vendor.firstName}</div></h3>
                         <p className="card-text">You can add the detail using + button and remove using - button</p>
                     </div>
 
