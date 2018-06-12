@@ -21,8 +21,8 @@ class RefugeeSignIn extends React.Component{
     render(){
         return(
             <div className="RefugeeSignIn h-100">
-            <button className="btn btn-light mt-2 mx-2" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 <Navbar title="RMS"/>
+                <button className="btn btn-light m-2" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 <div className="prescription d-flex justify-content-center"></div>
             <div className='row d-flex justify-content-center h-100 '>
                 <div className='col-lg-6 col-sm-6 h-100'>

@@ -9,7 +9,9 @@ class PhysicianVaccineRecord extends React.Component {
     super(props);
 
   }
-
+  moveBack(e){
+    this.props.history.push("/refugeesecondpage/physiciansignin/user");
+}
 
   render() {
     var mandatoryVacc = [
@@ -23,6 +25,10 @@ class PhysicianVaccineRecord extends React.Component {
     console.log(this.props.Doc);
     return (
       <div>
+        <div>
+            <button className="btn btn-light col-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
+            <div className="float-right mx-3"><a href="/refugeesecondpage/physiciansignin">Logout</a></div>
+        </div>
         <h2 className="mx-2">Vaccine Record</h2>
         <div className="scrollablediv">
 

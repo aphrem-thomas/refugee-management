@@ -21,7 +21,6 @@ class UserLable extends React.Component{
             </span>
           </div>
           <div className="row d-flex justify-content-end">
-            <div className="d-flex justify-content-end"><a href="/refugeesecondpage/physiciansignin">Logout</a></div>
           </div>
         </div>
         </div>

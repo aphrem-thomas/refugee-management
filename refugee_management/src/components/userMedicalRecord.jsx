@@ -13,10 +13,17 @@ class UserMedicalRecord extends React.Component {
             this.setState({btnstate:false});
         })
     }
+    moveBack(e){
+        this.props.history.push("/refugeesecondpage/refugeesingin/user");
+    }
     render() {
 
         return (
             <div>
+                <div>
+                <button className="btn btn-light col-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
+                <div className="float-right mx-3"><a href="/refugeesecondpage/refugeesingin">Logout</a></div>
+                </div>
                 <h2>Medical Record</h2>
                 <div className="scrollablediv">
                     <div className="p-2">
@@ -54,7 +61,7 @@ class UserMedicalRecord extends React.Component {
                         </table>
                     </div>
                 </div>
-                <div><button disabled={this.state.btnstate} className="btn btn-primary" onClick={this.onClick.bind(this)}>Refresh</button></div>
+                <button disabled={this.state.btnstate} className="btn btn-primary mx-3" onClick={this.onClick.bind(this)}>Refresh</button>
             </div>
 
         );

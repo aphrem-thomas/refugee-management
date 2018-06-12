@@ -10,12 +10,16 @@ import RecordButtonDoc from './recordbuttonsdoc.jsx';
 import PhysicianMedicalRecord from './physicianmedicalrecord.jsx'
 
 class UserPage extends React.Component {
+  moveBack(e){
+    this.props.history.push("/refugeesecondpage/refugeesingin/");
+}
   render() {
 
     return (
       <BrowserRouter>
         <div>
           <UserLabel />
+          <button className="btn btn-light col-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
           <Route exact path='/refugeesecondpage/refugeesingin/user/' component={RecordButton} />
           <Route exact path='/refugeesecondpage/physiciansignin/user/' component={RecordButtonDoc} />
           <Route exact path='/refugeesecondpage/refugeesingin/user/usermedicalrecord/' component={UserMedicalRecord} />
