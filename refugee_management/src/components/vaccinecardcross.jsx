@@ -9,6 +9,7 @@ class Vaccinecard extends React.Component {
     e.preventDefault();
    
         //console.log("data in vaccineCardCross"+data);
+        this.refs.donebtn.setAttribute("disabled","disabled");
                 let data={
                   transactionName:"Vaccination",
                   refugee:this.props.Ref.refugeeId,
@@ -20,13 +21,13 @@ class Vaccinecard extends React.Component {
                   date: this.props.date
                 }
                
-    this.props.dispatch(actionCreator.updateVaccineRecord(this.props.Ref.refugeeId,data));
+    this.props.dispatch(actionCreator.updateVaccineRecord(this.props.Ref.refugeeId,data))
   }
   
   render() {
 
     return (
-      <div className="card mb-2">
+      <div className="card mb-2 mx-2">
         <div className="card-header text-white bg-danger">
           {this.props.vaccine}<span><i className="material-icons tickicon">highlight_off</i></span>
         </div>
@@ -34,7 +35,7 @@ class Vaccinecard extends React.Component {
           <h5 className="card-title">Pending</h5>
             <p className="card-text">
             {
-              this.props.doctor!=null?<button className='btn btn-primary' onClick={this.handleClick.bind(this)}>done</button>:null
+              this.props.doctor!=null?<button ref="donebtn" className='btn btn-primary' onClick={this.handleClick.bind(this)}>done</button>:null
             }
               
             </p>

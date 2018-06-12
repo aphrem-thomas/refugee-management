@@ -10,7 +10,7 @@ class RefugeeSignIn extends React.Component{
     }
     handleClick(e){
         e.preventDefault();
-
+        this.refs.submitbtn.setAttribute("disabled","disabled");
         this.props.dispatch(actionCreator.fetch(document.getElementById("exampleInputEmail1").value)).then(()=>{
             this.props.history.push("/refugeesecondpage/refugeesingin/user");
         });
@@ -30,7 +30,7 @@ class RefugeeSignIn extends React.Component{
                                 <small id="emailHelp" className="form-text text-muted">Enter Id provided to the refugee</small>
                             </div>
                             
-                            <button type="submit" onClick={this.handleClick.bind(this)} className="btn btn-primary">Submit</button>
+                            <button ref="submitbtn" type="submit" onClick={this.handleClick.bind(this)} className="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class UserLable extends React.Component{
   render() {
@@ -18,6 +19,9 @@ class UserLable extends React.Component{
               <br/><b>DOB: </b>{this.props.state1.dob}
               <br/><b>Gender: </b>{this.props.state1.sex}
             </span>
+          </div>
+          <div className="row d-flex justify-content-end">
+            <div className="d-flex justify-content-end"><a href="/refugeesecondpage/physiciansignin">Logout</a></div>
           </div>
         </div>
         </div>

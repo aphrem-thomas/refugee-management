@@ -11,12 +11,15 @@ class Medicaldashboard extends React.Component {
         this.state = {
             "sublist": [
                 { "item": null, "quantity": null },
-            ], "itemquantity": null
+            ], "itemquantity": null,"btnDisabled":false
         }
     }
 
     addItem(e) {
         e.preventDefault();
+        this.setState({btnDisabled:true});
+        // this.refs.addbtn.setAttribute("disabled","disabled");
+        // this.refs.subbtn.setAttribute("disabled","disabled");
         let data = {
             transactionName: null,
             assetId: null,
@@ -32,25 +35,33 @@ class Medicaldashboard extends React.Component {
             case 'Blood': {
                 data.transactionName = "SupplyBlood";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
+                    this.onChangeSub(e);
                     alert("sucessfully updated.");
+                    this.setState({btnDisabled:false});
                 })
             }; break;
             case 'Medicine': {
                 data.transactionName = "SupplyMedicine";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
+                    this.onChangeSub(e);
                     alert("sucessfully updated.");
+                    this.setState({btnDisabled:false});
                 })
             }; break;
             case 'Vaccine': {
                 data.transactionName = "SupplyVaccine";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
+                    this.onChangeSub(e);
                     alert("sucessfully updated.");
+                    this.setState({btnDisabled:false});
                 })
             }; break;
             case 'Syringe': {
                 data.transactionName = "SupplySyringe";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
+                    this.onChangeSub(e);
                     alert("sucessfully updated.");
+                    this.setState({btnDisabled:false});
                 })
             }; break;
 
@@ -59,6 +70,9 @@ class Medicaldashboard extends React.Component {
 
     subItem(e) {
         e.preventDefault();
+        this.setState({btnDisabled:true});
+        // this.refs.addbtn.setAttribute("disabled","disabled");
+        // this.refs.subbtn.setAttribute("disabled","disabled");
         let data = {
             "transactionName": null,
             "assetId": null,
@@ -74,25 +88,33 @@ class Medicaldashboard extends React.Component {
             case 'Blood': {
                 data.transactionName = "SupplyBlood";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
+                    this.onChangeSub(e);
                     alert("sucessfully updated.");
+                    this.setState({btnDisabled:false});
                 })
             }; break;
             case 'Meidicine': {
                 data.transactionName = "SupplyMedicine";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
+                    this.onChangeSub(e);
                     alert("sucessfully updated.");
+                    this.setState({btnDisabled:false});
                 })
             }; break;
             case 'Vaccine': {
                 data.transactionName = "SupplyVaccine";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
+                    this.onChangeSub(e);
                     alert("sucessfully updated.");
+                    this.setState({btnDisabled:false});
                 })
             }; break;
             case 'Syringe': {
                 data.transactionName = "SupplySyringe";
                 this.props.dispatch(actionCreator.addAsset(data)).then(()=>{
+                    this.onChangeSub(e);
                     alert("sucessfully updated.");
+                    this.setState({btnDisabled:false});
                 })
             }; break;
 
@@ -116,6 +138,7 @@ class Medicaldashboard extends React.Component {
                 })
                 console.log(temp);
                 this.setState({ sublist: temp });
+                this.onChangeSub(e);
             })
 
         }
@@ -129,6 +152,7 @@ class Medicaldashboard extends React.Component {
                     temp.push(thing);
                 })
                 this.setState({ sublist: temp });
+                this.onChangeSub(e);
             })
 
 
@@ -143,6 +167,7 @@ class Medicaldashboard extends React.Component {
                     temp.push(thing);
                 })
                 this.setState({ sublist: temp });
+                this.onChangeSub(e);
             })
 
 
@@ -157,6 +182,7 @@ class Medicaldashboard extends React.Component {
                     temp.push(thing);
                 })
                 this.setState({ sublist: temp });
+                this.onChangeSub(e);
             })
 
 
@@ -167,9 +193,30 @@ class Medicaldashboard extends React.Component {
         e.preventDefault();
         let value = document.getElementById("selectasset").value;
         let subvalue = document.getElementById("selectsub").value;
+        let itemobj;
         if (value == "Blood") {
-
+            itemobj=this.props.Blood.filter((item)=>{
+                return item.bloodType==subvalue;
+            })
         }
+        if (value == "Vaccine") {
+            itemobj=this.props.Vaccine.filter((item)=>{
+                return item.vaccinationType==subvalue;
+            })
+        }
+        if (value == "Medicine") {
+            itemobj=this.props.Medicine.filter((item)=>{
+                return item.medicineName==subvalue;
+            })
+        }
+        if (value == "Syringe") {
+            itemobj=this.props.Syringe.filter((item)=>{
+                return item.syringeType==subvalue;
+            })
+        }
+        console.log("in onChangeSub "+JSON.stringify(itemobj));
+        this.setState({itemquantity:itemobj[0].quantity});
+        //console.log("state "+this.state.itemobj[0].itemquantity);
     }
     render() {
         return (
@@ -185,9 +232,9 @@ class Medicaldashboard extends React.Component {
                     <form>
                         <div className="row">
                             <div className="col-12">
-                                <h3>Select the item</h3>
+                                <h3>Medical Inventory</h3>
                                 <select className="form-control form-control-lg" onChange={this.onChange.bind(this)} id="selectasset">
-                                    <option>Select</option>
+                                    <option>Select item</option>
                                     <option>Syringe</option>
                                     <option>Blood</option>
                                     <option>Vaccine</option>
@@ -208,8 +255,9 @@ class Medicaldashboard extends React.Component {
                                 </select>
                             </div>
                             <div className="col-4">
-                                <span class="badge badge-secondary"></span>
+                                <h2>{this.state.itemquantity}</h2>
                             </div>
+                            
                         </div>
 
                         <div className="row mt-3">
@@ -217,10 +265,10 @@ class Medicaldashboard extends React.Component {
                                 <input type="text" className="form-control h-100" id="quantity" placeholder="enter quantity" />
                             </div>
                             <div className="col-3">
-                                <button className="btn btn-light btn-sm" onClick={this.addItem.bind(this)}><span><i className="material-icons addbutton">add_circle</i></span></button>
+                                <button ref="addbtn" disabled={this.state.btnDisabled} className="btn btn-light btn-sm" onClick={this.addItem.bind(this)}><span><i className="material-icons addbutton">add_circle</i></span></button>
                             </div>
                             <div className="col-3">
-                                <button className="btn btn-light btn-sm" onClick={this.subItem.bind(this)}><span><i className="material-icons subbutton">remove_circle</i></span></button>
+                                <button ref="subbtn" disabled={this.state.btnDisabled} className="btn btn-light btn-sm" onClick={this.subItem.bind(this)}><span><i className="material-icons subbutton">remove_circle</i></span></button>
                             </div>
                         </div>
 

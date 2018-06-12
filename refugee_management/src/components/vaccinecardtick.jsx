@@ -7,7 +7,7 @@ class Vaccinecard extends React.Component {
   render() {
     // let vacc=this.props.vaccine.split("#");
     return (
-      <div className="card mb-2">
+      <div className="card mb-2 mx-2">
         <div className="card-header text-white bg-success">
           {this.props.vaccine}<span><i className="material-icons tickicon">done</i></span>
         </div>
