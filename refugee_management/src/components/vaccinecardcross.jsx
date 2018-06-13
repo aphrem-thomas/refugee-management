@@ -27,7 +27,7 @@ class Vaccinecard extends React.Component {
   render() {
 
     return (
-      <div className="card mb-2 mx-2">
+      <div className="card border-dark mb-2 mx-2">
         <div className="card-header text-white bg-danger">
           {this.props.vaccine}<span><i className="material-icons tickicon">highlight_off</i></span>
         </div>

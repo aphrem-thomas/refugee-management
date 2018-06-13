@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import * as actionCreator from './action/actionCreator.js';
 
 class UserMedicalRecord extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={"btnstate":false}
+        this.state = { "btnstate": false }
     }
-    onClick(){
-        this.setState({btnstate:true})
-        this.props.dispatch(actionCreator.fetch(this.props.state1.refugeeId)).then(()=>{
-            this.setState({btnstate:false});
+    onClick() {
+        this.setState({ btnstate: true })
+        this.props.dispatch(actionCreator.fetch(this.props.state1.refugeeId)).then(() => {
+            this.setState({ btnstate: false });
         })
     }
-    moveBack(e){
+    moveBack(e) {
         this.props.history.push("/refugeesecondpage/refugeesingin/user");
     }
     render() {
@@ -21,8 +21,7 @@ class UserMedicalRecord extends React.Component {
         return (
             <div>
                 <div>
-                <button className="btn btn-light col-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
-                <div className="float-right mx-3"><a href="/refugeesecondpage/refugeesingin">Logout</a></div>
+                    <button className="btn btn-light col-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 </div>
                 <h2>Medical Record</h2>
                 <div className="scrollablediv">
@@ -41,7 +40,7 @@ class UserMedicalRecord extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.state1.medicalRecords.map((item,i) => {
+                                {this.props.state1.medicalRecords.map((item, i) => {
                                     let doc = item.physician.split('#');
                                     return (
                                         <tr key={i}>
@@ -61,6 +60,7 @@ class UserMedicalRecord extends React.Component {
                         </table>
                     </div>
                 </div>
+                <div className="float-right mx-3"><a href="/refugeesecondpage/refugeesingin">Logout</a></div>
                 {/* <button disabled={this.state.btnstate} className="btn btn-primary mx-3" onClick={this.onClick.bind(this)}>Refresh</button> */}
             </div>
 
@@ -68,12 +68,12 @@ class UserMedicalRecord extends React.Component {
 
     }
 
-    componentDidMount(){
-        this.intervalvariable=setInterval(()=>{
+    componentDidMount() {
+        this.intervalvariable = setInterval(() => {
             this.props.dispatch(actionCreator.fetch(this.props.state1.refugeeId))
-    },5000)
-}
-    componentWillUnmount(){
+        }, 5000)
+    }
+    componentWillUnmount() {
         clearInterval(this.intervalvariable);
     }
 

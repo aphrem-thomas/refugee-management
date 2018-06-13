@@ -3,6 +3,7 @@ import Vaccinecardtick from './vaccinecardtick.jsx';
 import Vaccinecardcross from './vaccinecardcross.jsx';
 import { connect } from 'react-redux';
 import { difference } from 'lodash';
+import * as actionCreator from './action/actionCreator.js';
 
 class UserVaccineRecord extends React.Component {
   constructor(props) {
@@ -50,7 +51,17 @@ class UserVaccineRecord extends React.Component {
     );
 
   }
+  componentDidMount() {
+    this.intervalvariable = setInterval(() => {
+        this.props.dispatch(actionCreator.fetch(this.props.state1.refugeeId))
+    }, 5000)
 }
+componentWillUnmount() {
+    clearInterval(this.intervalvariable);
+}
+}
+
+
 function mapStateToProps(state, ownProps) {
   return ({ state1: state.RefugeeDetails })
 }

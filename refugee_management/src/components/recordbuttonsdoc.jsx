@@ -21,6 +21,7 @@ class RecordButton extends React.Component{
                 </div>
             </div>
         </div>
+        <div className="float-right mx-3"><a href="/refugeesecondpage/physiciansignin">Logout</a></div>
       </div>
 
     );

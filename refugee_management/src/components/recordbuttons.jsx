@@ -8,8 +8,8 @@ class RecordButton extends React.Component{
   render() {
     
     return (
-        <div className='h-100'>
-        <div className="container h-100">
+        
+        <div className="container">
             <div className="mt-5">
                 <div className="col-lg-12 col-sm-12">
                     <Link to='/refugeesecondpage/refugeesingin/user/usermedicalrecord/' className='p-1'>
@@ -20,8 +20,9 @@ class RecordButton extends React.Component{
                     </Link>
                 </div>
             </div>
+            <div className="float-right mx-3"><a href="/refugeesecondpage/refugeesingin">Logout</a></div>
         </div>
-      </div>
+     
 
     );
     
