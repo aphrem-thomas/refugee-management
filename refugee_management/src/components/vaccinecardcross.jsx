@@ -21,7 +21,9 @@ class Vaccinecard extends React.Component {
                   date: this.props.date
                 }
                
-    this.props.dispatch(actionCreator.updateVaccineRecord(this.props.Ref.refugeeId,data))
+    this.props.dispatch(actionCreator.updateVaccineRecord(this.props.Ref.refugeeId,data)).then(()=>{
+      alert("sucessfully updated");
+    })
   }
   
   render() {

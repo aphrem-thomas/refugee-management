@@ -45,6 +45,6 @@ class RefugeeSignIn extends React.Component{
 }
 
 function mapStateToProps(state,ownProps){
-
+    return({});
 }
 export default connect(mapStateToProps)(RefugeeSignIn);

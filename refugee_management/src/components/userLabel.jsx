@@ -11,7 +11,7 @@ class UserLable extends React.Component{
           <div className="card-body">
           <div className="row">
             <div className="col-4 col-4">
-              <img className="card-img-left img-responsive img-circle" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="Card image cap"/>
+              <img className="card-img-left img-responsive img-circle" width="100" height="100" src="https://i.stack.imgur.com/l60Hf.png" alt="Card image cap"/>
             </div>
             <span className="col-8 col-8">
               <h5 className="card-title"><b>{this.props.cardtitle}</b></h5>
