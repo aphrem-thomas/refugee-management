@@ -18,8 +18,8 @@ class Supplysecondpage extends React.Component{
         return(
             <div className="container cartoonpage h-100">
                 <button className="btn btn-light m-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
-                <div className="d-flex align-items-center h-100">
-                    <div className="col-lg-12 col-sm-12">
+                <div className="d-flex justify-content-center align-items-center h-100">
+                    <div className="col-lg-4 col-sm-12">
                         <Link to='/supplysecondpage/vendorlogin' className='p-1'>
                             <button type="button" className="btn btn-primary btn-lg btn-block">Vendor</button>
                         </Link>

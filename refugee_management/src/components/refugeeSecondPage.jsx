@@ -14,8 +14,8 @@ class SecondPage extends React.Component{
                 <div className="d-flex justify-content-center mt-3">
                     <img src={doctor} height="300" width="350"/>
                 </div>
-                <div className="row ">
-                    <div className="col-lg-12 col-sm-12 mx-5">
+                <div className="row d-flex justify-content-center ">
+                    <div className="col-lg-4 col-sm-12 mx-5">
                         <Link to='/refugeesecondpage/refugeesingin' className='p-1'>
                             <button type="button" className="btn btn-primary btn-lg btn-block">Patient</button>
                         </Link>

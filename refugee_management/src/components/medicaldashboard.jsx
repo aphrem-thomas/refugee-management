@@ -229,6 +229,7 @@ class Medicaldashboard extends React.Component {
                     </div>
 
                 </div>
+                <a href="/supplysecondpage/vendorlogin"><button className="btn btn-light m-3"><span><i className="material-icons backbtn">arrow_back</i></span></button></a>
                 <div className='h-100 d-flex align-items-center p-3'>
                     <form>
                         <div className="row">
@@ -278,7 +279,7 @@ class Medicaldashboard extends React.Component {
                 </div>
                 <div className="p-3">
                     <button className="btn btn-outline-info float-right">
-                        <Link to="/supplysecondpage/vendorlogin/">Logout</Link>
+                        <Link to="/">Logout</Link>
                     </button>
                 </div>
             </div>

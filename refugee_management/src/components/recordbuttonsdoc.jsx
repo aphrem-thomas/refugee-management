@@ -5,13 +5,17 @@ import UserMedicalRecord from './userMedicalRecord.jsx';
 // import SupplyChain from './components/supplyChainHome.jsx';
 
 class RecordButton extends React.Component{
+    moveBack(e){
+        this.props.history.push("/refugeesecondpage/refugeesingin/");
+    }
   render() {
     
     return (
         <div className='h-100'>
+        <a href="/refugeesecondpage/physiciansignin"><button className="btn btn-light m-3"><span><i className="material-icons backbtn">arrow_back</i></span></button></a>
         <div className="container h-100">
-            <div className="mt-5">
-                <div className="col-lg-12 col-sm-12">
+            <div className="row d-flex justify-content-center mt-5">
+                <div className="col-lg-4 col-sm-12">
                     <Link to='/refugeesecondpage/physiciansignin/user/usermedicalrecord/' className='p-1'>
                         <button type="button" className="btn btn-primary btn-lg btn-block">Medical Record</button>
                     </Link>
@@ -21,7 +25,7 @@ class RecordButton extends React.Component{
                 </div>
             </div>
         </div>
-        <div className="float-right mx-3"><a href="/refugeesecondpage/physiciansignin">Logout</a></div>
+        <div className="float-right mx-3"><a href="/">Logout</a></div>
       </div>
 
     );
