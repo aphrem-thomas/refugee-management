@@ -23,7 +23,6 @@ class VendorSignIn extends React.Component{
     render(){
         return(
             <div>
-                <Navbar title={"Medical Supply"}/>
                 <button className="btn btn-light mx-3 mt-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
             <div className='row d-flex justify-content-center align-items-center h-100'>
                 <div className='col-lg-6 co-sm-12'>

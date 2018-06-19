@@ -10,12 +10,14 @@ import user from './components/userPage.jsx';
 import vendorsignin from './components/vendorSignIn.jsx';
 import Medicaldashboard from './components/medicaldashboard.jsx';
 import Medicalpublic from './components/medicalpublic.jsx';
+import Navbar from './components/Navbar.jsx'
 class App extends Component {
  
   render() {
     
     return (
       <div className='container h-100'>
+      <Navbar title="ReACH"/>
         <Route exact path='/' component={FrontEndPageButton}/>
         <Route exact path='/refugeesecondpage' component={refugeeSecondPage}/>
         <Route exact path='/supplysecondpage' component={supplysecondpage}/>

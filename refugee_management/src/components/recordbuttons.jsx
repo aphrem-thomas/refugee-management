@@ -19,8 +19,13 @@ class RecordButton extends React.Component{
                     <Link to='/refugeesecondpage/refugeesingin/user/usermedicalrecord/' className='p-1'>
                         <button type="button" className="btn btn-primary btn-lg btn-block">Medical Record</button>
                     </Link>
+                   
                     <Link to='/refugeesecondpage/refugeesingin/user/uservaccinerecord/' className='p-1'>
                         <button type="button" className="btn btn-primary btn-lg btn-block">Vaccine Record</button>
+                    </Link>
+
+                     <Link to='/refugeesecondpage/refugeesingin/user/childrecord/' className='p-1'>
+                        <button type="button" className="btn btn-primary btn-lg btn-block">My Child</button>
                     </Link>
                 </div>
             </div>
