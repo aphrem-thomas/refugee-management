@@ -8,11 +8,11 @@ import baby1 from '../images/baby1.jfif';
 import baby2 from '../images/baby2.jpg';
 import baby3 from '../images/baby3.jpg';
 class UserChildRecord extends React.Component {
-  handleClick(e){
+  onClick1(e){
     e.preventDefault();
    
         //console.log("data in vaccineCardCross"+data);
-        this.refs.donebtn.setAttribute("disabled","disabled");
+        // this.refs.donebtn.setAttribute("disabled","disabled");
                 let data={
                   transactionName:"Vaccination",
                   refugee:this.props.Ref.refugeeId,
@@ -24,8 +24,50 @@ class UserChildRecord extends React.Component {
                   date: this.props.date
                 }
                
-    this.props.dispatch(actionCreator.updateVaccineRecord(this.props.Ref.refugeeId,data)).then(()=>{
-      alert("sucessfully updated");
+    this.props.dispatch(actionCreator.fetch("rf100")).then(()=>{
+      this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/childspage");
+    })
+  }
+
+  onClick2(e){
+    e.preventDefault();
+   
+        //console.log("data in vaccineCardCross"+data);
+        // this.refs.donebtn.setAttribute("disabled","disabled");
+                let data={
+                  transactionName:"Vaccination",
+                  refugee:this.props.Ref.refugeeId,
+                  doctor:this.props.doctor,
+                  vaccine:this.props.vaccine,
+                  quantity:2,
+                  location: this.props.location,
+                  camp: this.props.camp,
+                  date: this.props.date
+                }
+               
+    this.props.dispatch(actionCreator.fetch("rf101")).then(()=>{
+      this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/childspage");
+    })
+  }
+
+  onClick3(e){
+    e.preventDefault();
+   
+        //console.log("data in vaccineCardCross"+data);
+        // this.refs.donebtn.setAttribute("disabled","disabled");
+                let data={
+                  transactionName:"Vaccination",
+                  refugee:this.props.Ref.refugeeId,
+                  doctor:this.props.doctor,
+                  vaccine:this.props.vaccine,
+                  quantity:2,
+                  location: this.props.location,
+                  camp: this.props.camp,
+                  date: this.props.date
+                }
+               
+    this.props.dispatch(actionCreator.fetch("rf103")).then(()=>{
+      this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/childspage");
     })
   }
   
@@ -33,6 +75,7 @@ class UserChildRecord extends React.Component {
 
     return (
       <div>
+        <h3 className="orangefont mx-2">children</h3>
         <div className="card mx-2">
         <div className="row">
         <div className="col-3">
@@ -45,7 +88,7 @@ class UserChildRecord extends React.Component {
         </div>
         </div>
         <span className="col-3 babybuttton align-items-center">
-        <a href="#" className="btn btn-primary btn-lg ">></a>
+        <button onClick={this.onClick1.bind(this)} className="btn btn-primary btn-lg ">></button>
         </span>
         </div>
       </div>
@@ -63,7 +106,7 @@ class UserChildRecord extends React.Component {
         </div>
         </div>
         <span className="col-3 babybuttton align-items-center">
-        <a href="#" className="btn btn-primary btn-lg ">></a>
+        <button onClick={this.onClick2.bind(this)} className="btn btn-primary btn-lg ">></button>
         </span>
         </div>
       </div>
@@ -82,7 +125,7 @@ class UserChildRecord extends React.Component {
         </div>
         </div>
         <span className="col-3 babybuttton align-items-center">
-        <a href="#" className="btn btn-primary btn-lg ">></a>
+        <button onClick={this.onClick3.bind(this)} className="btn btn-primary btn-lg ">></button>
         </span>
         </div>
       </div>

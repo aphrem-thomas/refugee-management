@@ -14,7 +14,7 @@ class RecordButton extends React.Component{
         
         <div className="container">
             <a href="/refugeesecondpage/refugeesingin"><button className="btn btn-light m-3"><span><i className="material-icons backbtn">arrow_back</i></span></button></a>
-            <div className="row d-flex justify-content-center mt-5">
+            <div className="row d-flex justify-content-center mt-5 mx-2">
                 <div className="col-lg-4 col-sm-12">
                     <Link to='/refugeesecondpage/refugeesingin/user/usermedicalrecord/' className='p-1'>
                         <button type="button" className="btn btn-primary btn-lg btn-block">Medical Record</button>

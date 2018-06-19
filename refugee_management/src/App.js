@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     
     return (
-      <div className='container h-100'>
+      <div className='container h-100 cartoonpage'>
       <Navbar title="ReACH"/>
         <Route exact path='/' component={FrontEndPageButton}/>
         <Route exact path='/refugeesecondpage' component={refugeeSecondPage}/>
@@ -24,6 +24,7 @@ class App extends Component {
         <Route exact path='/refugeesecondpage/refugeesingin' component={RefugeeSignIn}/>
         <Route exact path='/refugeesecondpage/physiciansignin' component={physicianSignIn}/>
         <Route exact path='/refugeesecondpage/refugeesingin/user' component={user}/>
+        <Route exact path='/refugeesecondpage/physiciansignin/user' component={user}/>
         <Route exact path='/refugeesecondpage/physiciansignin/user' component={user}/>
         <Route exact path='/supplysecondpage/vendorlogin' component={vendorsignin}/>
         <Route exact path='/supplysecondpage/vendorlogin/user' component={Medicaldashboard}/>

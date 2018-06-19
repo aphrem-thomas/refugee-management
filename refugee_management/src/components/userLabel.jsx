@@ -7,7 +7,7 @@ class UserLable extends React.Component{
     
     return (
       <div>
-        <div className="card bg-light mb-2 mt-2" styles="max-width: 18rem;">
+        <div className="card bg-light mb-2 mt-2 userlabel" styles=" max-width: 18rem;">
           <div className="card-body">
           <div className="row">
             <div className="col-4 col-4">

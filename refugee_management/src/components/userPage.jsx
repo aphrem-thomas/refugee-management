@@ -10,6 +10,7 @@ import RecordButtonDoc from './recordbuttonsdoc.jsx';
 import PhysicianMedicalRecord from './physicianmedicalrecord.jsx'
 import UserChildRecord from './UserChildRecord.jsx';
 import Navbar from './Navbar';
+import Childpage from './childHealtRecord.jsx';
 class UserPage extends React.Component {
   moveBack(e){
     this.props.history.push("/refugeesecondpage/refugeesingin/");
@@ -27,6 +28,8 @@ class UserPage extends React.Component {
           <Route exact path='/refugeesecondpage/refugeesingin/user/usermedicalrecord/' component={UserMedicalRecord} />
           <Route exact path='/refugeesecondpage/refugeesingin/user/uservaccinerecord/' component={UserVaccineRecord} />
           <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/' component={UserChildRecord} />
+          <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/childspage' component={Childpage} />
+          
           <Route exact path='/refugeesecondpage/physiciansignin/user/uservaccinerecord' component={PhysicianVaccineRecord} />
           <Route exact path='/refugeesecondpage/physiciansignin/user/usermedicalrecord' component={PhysicianMedicalRecord} />
         </div>
