@@ -25,7 +25,6 @@ class App extends Component {
         <Route exact path='/refugeesecondpage/physiciansignin' component={physicianSignIn}/>
         <Route exact path='/refugeesecondpage/refugeesingin/user' component={user}/>
         <Route exact path='/refugeesecondpage/physiciansignin/user' component={user}/>
-        <Route exact path='/refugeesecondpage/physiciansignin/user' component={user}/>
         <Route exact path='/supplysecondpage/vendorlogin' component={vendorsignin}/>
         <Route exact path='/supplysecondpage/vendorlogin/user' component={Medicaldashboard}/>
         <Route exact path='/supplysecondpage/public' component={Medicalpublic}/>

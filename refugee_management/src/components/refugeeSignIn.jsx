@@ -12,7 +12,7 @@ class RefugeeSignIn extends React.Component {
         e.preventDefault();
         let val = document.getElementById("exampleInputEmail1").value;
 
-        if (val != "" && (val == "rf11_Joseph.Grisham" || val == "rf11_Rosanna.Gilbert" || val == "rf11_Jason.Smith")) {
+        if (val != "") {
             this.refs.submitbtn.setAttribute("disabled", "disabled");
             this.props.dispatch(actionCreator.fetch(document.getElementById("exampleInputEmail1").value)).then(() => {
                 this.props.history.push("/refugeesecondpage/refugeesingin/user");
@@ -30,7 +30,7 @@ class RefugeeSignIn extends React.Component {
         return (
             <div className="RefugeeSignIn h-100">
                 
-                <button className="btn btn-light m-2" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
+                <button className="btn btn-light m-2 backbutton" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 <div className="prescription d-flex justify-content-center"></div>
                 <div className='row d-flex justify-content-center h-100 '>
                     <div className='col-lg-6 col-sm-6 h-100'>

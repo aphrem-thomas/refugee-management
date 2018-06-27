@@ -19,8 +19,12 @@ class FrontEndPageButton extends React.Component{
                   {/* <div className="row d-flex justify-content-center">
                       <img src={collage} height="300" width="350"/>
                     </div> */}
+                    <div className="d-flex justify-content-center pt-5 px-5 pb-0">
+                    <h2 className="whitefont"><span className="fontred">Re</span>fugee <span className="fontred">A</span>ssistance in <span className="fontred">C</span>linics and<br/><span className="fontred">H</span>ospitals</h2>
+                    </div>
+                    <h3 className="orangefont px-4">Powered by Blockchain</h3>
             <div className="frontpagebuttons h-100 mt-0 mx-2">
-                <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="row d-flex justify-content-center">
                     <div className="col-lg-4 col-sm-12 ">
                         <Link to='/refugeesecondpage' className='p-2'>
                             <button type="button" className="btn btn-primary btn-lg btn-block mt-0">Refugee Management</button>

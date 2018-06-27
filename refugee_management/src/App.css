@@ -47,13 +47,22 @@
 .orangefont{
   color:rgb(248, 165, 87);
 }
+.whitefont{
+  color:white;
+}
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited,
 .btn-primary:focus {
     background-color: rgb(248, 165, 87);
-    border-color: rgb(248, 165, 87);;
+    border-color: rgb(248, 165, 87);
+}
+
+.backbutton{
+  background-color: #222;
+  border-color: #222;
+  color: rgb(248, 165, 87);
 }
 
 .tickicon{
@@ -100,4 +109,16 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+table{
+  color:white;
+}
+thead{
+  color:rgb(248, 165, 87);
+}
+
+.babybuttton{
+  margin-right: 20px;
+  padding-right: 10px;
+  font-size: 70px;
 }

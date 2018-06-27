@@ -7,7 +7,7 @@ import * as actionCreator from './action/actionCreator.js';
 import baby1 from '../images/baby1.jfif';
 import baby2 from '../images/baby2.jpg';
 import baby3 from '../images/baby3.jpg';
-class UserChildRecord extends React.Component {
+class PhysicianChildRecord extends React.Component {
   onClick1(e){
     e.preventDefault();
    
@@ -25,7 +25,7 @@ class UserChildRecord extends React.Component {
                 }
                
     this.props.dispatch(actionCreator.fetch("rf100")).then(()=>{
-      this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/childspage");
+      this.props.history.push("/refugeesecondpage/physiciansignin/user/childrecord/childspage");
     })
   }
 
@@ -46,7 +46,7 @@ class UserChildRecord extends React.Component {
                 }
                
     this.props.dispatch(actionCreator.fetch("rf101")).then(()=>{
-      this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/childspage");
+      this.props.history.push("/refugeesecondpage/physiciansignin/user/childrecord/childspage");
     })
   }
 
@@ -67,12 +67,12 @@ class UserChildRecord extends React.Component {
                 }
                
     this.props.dispatch(actionCreator.fetch("rf103")).then(()=>{
-      this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/childspage");
+      this.props.history.push("/refugeesecondpage/physiciansignin/user/childrecord/childspage");
     })
   }
   
   moveBack(e){
-    this.props.history.push("/refugeesecondpage/refugeesingin/user/");
+    this.props.history.push("/refugeesecondpage/physiciansignin/user/");
 }
   render() {
 
@@ -148,4 +148,4 @@ function mapStateToProps(state,ownProps){
   });
 }
 
-export default connect(mapStateToProps)(UserChildRecord);
+export default connect(mapStateToProps)(PhysicianChildRecord);

@@ -221,20 +221,20 @@ class Medicaldashboard extends React.Component {
     render() {
         return (
             <div>
-                <div className="card text-white bg-primary-frontpage mb-3">
+                <div className="card text-white bg-primary-frontpage mb-1">
                     <div className="card-body">
-                        <h1 className="card-title">Medical Inventory Dashboard</h1>
+                        <h3 className="card-title">Medical Inventory Dashboard</h3>
                         <h3 className="fontred"> Welcome <div className="fontred">{this.props.Vendor.firstName}</div></h3>
                         <p className="card-text">You can add the detail using + button and remove using - button</p>
                     </div>
 
                 </div>
-                <a href="/supplysecondpage/vendorlogin"><button className="btn btn-light m-3"><span><i className="material-icons backbtn">arrow_back</i></span></button></a>
+                <a href="/supplysecondpage/vendorlogin"><button className="btn btn-light my-0 mx-3 backbutton"><span><i className="material-icons backbtn">arrow_back</i></span></button></a>
                 <div className='h-100 d-flex align-items-center p-3'>
                     <form>
                         <div className="row">
                             <div className="col-12">
-                                <h3>Medical Inventory</h3>
+                                <h3 className="orangefont">Medical Inventory</h3>
                                 <select className="form-control form-control-lg" onChange={this.onChange.bind(this)} id="selectasset">
                                     <option>Select item</option>
                                     <option>Syringe</option>
@@ -257,7 +257,7 @@ class Medicaldashboard extends React.Component {
                                 </select>
                             </div>
                             <div className="col-4">
-                                <h2>{this.state.itemquantity}</h2>
+                                <h2 className="orangefont">{this.state.itemquantity}</h2>
                             </div>
                             
                         </div>
@@ -267,10 +267,10 @@ class Medicaldashboard extends React.Component {
                                 <input type="text" className="form-control h-100" id="quantity" placeholder="enter quantity" />
                             </div>
                             <div className="col-3">
-                                <button ref="addbtn" disabled={this.state.btnDisabled} className="btn btn-light btn-sm" onClick={this.addItem.bind(this)}><span><i className="material-icons addbutton">add_circle</i></span></button>
+                                <button ref="addbtn" disabled={this.state.btnDisabled} className="btn btn-light btn-sm backbutton" onClick={this.addItem.bind(this)}><span><i className="material-icons addbutton">add_circle</i></span></button>
                             </div>
                             <div className="col-3">
-                                <button ref="subbtn" disabled={this.state.btnDisabled} className="btn btn-light btn-sm" onClick={this.subItem.bind(this)}><span><i className="material-icons subbutton">remove_circle</i></span></button>
+                                <button ref="subbtn" disabled={this.state.btnDisabled} className="btn btn-light btn-sm backbutton" onClick={this.subItem.bind(this)}><span><i className="material-icons subbutton">remove_circle</i></span></button>
                             </div>
                         </div>
 

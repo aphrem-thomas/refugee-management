@@ -7,10 +7,19 @@ import { difference } from 'lodash';
 class PhysicianVaccineRecord extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state={"vacc":"done"};
   }
   moveBack(e){
-    this.props.history.push("/refugeesecondpage/physiciansignin/user");
+    this.props.history.push(this.props.returnpath);
+}
+done(e){
+  e.preventDefault();
+  this.setState({vacc:"done"})
+}
+
+notdone(e){
+  e.preventDefault();
+  this.setState({vacc:"notdone"})
 }
 
   render() {
@@ -26,19 +35,25 @@ class PhysicianVaccineRecord extends React.Component {
     return (
       <div>
         <div>
-            <button className="btn btn-light col-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
+            <button className="btn btn-light col-3 backbutton" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
             <div className="float-right mx-3"><a href="/refugeesecondpage/physiciansignin">Logout</a></div>
         </div>
-        <h2 className="mx-2">Vaccine Record</h2>
+        <h2 className="mx-2 orangefont">Vaccine Record</h2>
+        <div className="row">
+        <div className="col-6"><button onClick={this.done.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 mx-2">Vaccine done</button></div>
+        <div className="col-6"><button onClick={this.notdone.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 ml-0 mr-2">Vaccine not done</button></div>
+        {/* <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/childspage/' component={} />
+        <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/medicalrecord/' component={UserMedicalRecord} />
+        <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/vaccinerecord/' component={UserVaccineRecord} /> */}
+
+        </div>
         <div className="scrollablediv">
 
-          {
-            this.props.state1.vaccinationRecords.map((item,i) => {
-              return (<Vaccinecardtick key={i} vaccine={item.vaccineName} date={item.date} location={item.location} camp={item.camp}/>)
-            })
-          }
-          {
-            vaccinenot.map((item,i) => {
+         
+         {
+            this.state.vacc=="done"?this.props.state1.vaccinationRecords.map((item) => {
+              return (<Vaccinecardtick vaccine={item.vaccineName} date={item.date} location={item.location} camp={item.camp}/>)
+            }):vaccinenot.map((item,i) => {
               return (<Vaccinecardcross key={i} 
                 vaccine={item} 
                 doctor={this.props.Doc.name} 

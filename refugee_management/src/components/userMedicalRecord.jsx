@@ -14,14 +14,14 @@ class UserMedicalRecord extends React.Component {
         })
     }
     moveBack(e) {
-        this.props.history.push("/refugeesecondpage/refugeesingin/user");
+        this.props.history.push(this.props.returnpath);
     }
     render() {
 
         return (
             <div>
                 <div>
-                    <button className="btn btn-light col-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
+                    <button className="btn btn-light col-3 backbutton" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 </div>
                 <h2>Medical Record</h2>
                 <div className="scrollablediv">

@@ -22,14 +22,14 @@ class PhysicianMedicalRecord extends React.Component {
         this.props.dispatch(actionCreator.updateMedicalRecord(this.props.Ref.refugeeId,data));
     }
     moveBack(e){
-        this.props.history.push("/refugeesecondpage/physiciansignin/user");
+        this.props.history.push(this.props.returnpath);
     }
     render() {
 
         return (
             <div>
                 <div>
-                    <button className="btn btn-light col-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
+                    <button className="btn btn-light col-3 backbutton" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                     <div className="float-right mx-3"><a href="/refugeesecondpage/physiciansignin">Logout</a></div>
                 </div>
                 <h2>Medical Record</h2>

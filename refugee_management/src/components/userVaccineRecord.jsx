@@ -8,12 +8,21 @@ import * as actionCreator from './action/actionCreator.js';
 class UserVaccineRecord extends React.Component {
   constructor(props) {
     super(props);
+    this.state={"vacc":"done"}
 
   }
   moveBack(e){
     this.props.history.push("/refugeesecondpage/refugeesingin/user");
 }
+done(e){
+  e.preventDefault();
+  this.setState({vacc:"done"})
+}
 
+notdone(e){
+  e.preventDefault();
+  this.setState({vacc:"notdone"})
+}
   render() {
     var mandatoryVacc = [
       "DEPTERIA", "ROTAVIRUS", "MMR", "HPV", "TDAP", "MEASLES", "MUMPS", "HEPATITISA", "HEPATITISB", "POLIO"];
@@ -27,19 +36,24 @@ class UserVaccineRecord extends React.Component {
     return (
       <div>
         <div>
-                <button className="btn btn-light col-3" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
+                <button className="btn btn-light col-3 backbutton" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 <div className="float-right mx-3"><a href="/refugeesecondpage/refugeesingin">Logout</a></div>
         </div>
-        <h2 className="mx-2">Vaccine Record</h2>
+        <h2 className="mx-2 orangefont">Vaccine Record</h2>
+        <div className="row">
+        <div className="col-6"><button onClick={this.done.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 mx-2">Vaccine done</button></div>
+        <div className="col-6"><button onClick={this.notdone.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 ml-0 mr-2">Vaccine not done</button></div>
+        {/* <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/childspage/' component={} />
+        <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/medicalrecord/' component={UserMedicalRecord} />
+        <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/vaccinerecord/' component={UserVaccineRecord} /> */}
+
+        </div>
         <div className="scrollablediv">
 
           {
-            this.props.state1.vaccinationRecords.map((item) => {
+            this.state.vacc=="done"?this.props.state1.vaccinationRecords.map((item) => {
               return (<Vaccinecardtick vaccine={item.vaccineName} date={item.date} location={item.location} camp={item.camp}/>)
-            })
-          }
-          {
-            vaccinenot.map((item) => {
+            }):vaccinenot.map((item) => {
               console.log("inside vaccinecross");
               return (<Vaccinecardcross vaccine={item} />)
             })

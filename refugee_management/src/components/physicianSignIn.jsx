@@ -47,7 +47,7 @@ class PhysicianSignIn extends React.Component {
 
         return (
             <div>
-                <button className="btn btn-light mt-1" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
+                <button className="btn btn-light mt-1 backbutton" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 <div className='row d-flex justify-content-center h-100'>
                     <div className='col-lg-6 co-sm-12'>
                         <div>
