@@ -22,8 +22,16 @@ class PhysicianMedicalRecord extends React.Component {
         this.props.dispatch(actionCreator.updateMedicalRecord(this.props.Ref.refugeeId,data));
     }
     moveBack(e){
-        this.props.history.push(this.props.returnpath);
-    }
+        if(this.props.location.pathname=="/refugeesecondpage/physiciansignin/user/childrecord/medicalrecord/"){
+          this.props.dispatch(actionCreator.fetch(this.props.Children[0].parentId)).then(()=>{
+            this.props.history.push("/refugeesecondpage/physiciansignin/user");
+          })
+        }
+          else{
+            this.props.history.push("/refugeesecondpage/physiciansignin/user");
+          }
+        }
+        
     render() {
 
         return (

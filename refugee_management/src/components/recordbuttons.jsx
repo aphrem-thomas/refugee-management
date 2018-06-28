@@ -13,43 +13,42 @@ class RecordButton extends React.Component{
     moveBack(e){
         this.props.history.push("/refugeesecondpage/refugeesingin");
     }
-    childRecord(e){
+    childRecord(e) {
         e.preventDefault();
-        
-        let arrayChildren=[];
-        let children1=this.props.Ref.children;
-        if(children1){
-            children1.map((item)=>{
-                let child1=item.child.split('#');
+
+        let arrayChildren = [];
+        let children = this.props.Ref.children;
+        if (children) {
+            children.map((item) => {
+                let child1 = item.child.split('#');
                 arrayChildren.push(child1[1])
             })
         }
-        arrayChildren.map((item)=>{
-            if(this.props.Children.length==0){      //otherwise everytime we go back and return to same screen child list will get populated
-             this.props.dispatch(actionCreator.updateChildren(item,this.props.Ref.refugeeId))
+        console.log("array children"+arrayChildren)
+        arrayChildren.map((item) => {
+            if (this.props.Children.length == 0) {      //otherwise everytime we go back and return to same screen child list will get populated
+                this.props.dispatch(actionCreator.updateChildren(item, this.props.Ref.refugeeId))
             }
         })
         this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
     }
-    parentRecord(e){
-        e.preventDefault();
-         
-        let arrayParent=[];
-        let parent=this.props.Ref.parents;
-        if(parent){
-            parent.map((item)=>{
-                let child1=item.child.split('#');
-                arrayParent.push(child1[1])
-            })
-        }
-        arrayParent.map((item)=>{
-            if(this.props.Children.length==0){      //otherwise everytime we go back and return to same screen child list will get populated
-             this.props.dispatch(actionCreator.updateChildren(item,this.props.Ref.refugeeId))
-            }
-        })
-        this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
-    
 
+    parentRecord(e) {
+        e.preventDefault();
+
+        let arrayChildren = [];
+        let parent=this.props.Ref.parents;
+        if (parent) {
+            let father = parent.father.split('#');
+            let mother = parent.mother.split('#');
+            arrayChildren=[father[1],mother[1]]
+        }
+        arrayChildren.map((item) => {
+                  //otherwise everytime we go back and return to same screen child list will get populated
+                this.props.dispatch(actionCreator.updateChildren(item, this.props.Ref.refugeeId))
+           
+        })
+        this.props.history.push("/refugeesecondpage/refugeesingin/user/parentrecord/");
     }
 
   render() {
@@ -64,12 +63,12 @@ class RecordButton extends React.Component{
             </div>
             <div className="row">
                 <div className="col-6">
-                    <Link to='/refugeesecondpage/refugeesingin/user/usermedicalrecord/' className='p-1'>
+                    <Link to='/refugeesecondpage/refugeesingin/user/medicalrecord/' className='p-1'>
                         <button type="button" className="btn btn-primary btn-lg btn-block ml-2">Medical Record</button>
                     </Link>
                 </div>
                 <div className="col-6"> 
-                    <Link to='/refugeesecondpage/refugeesingin/user/uservaccinerecord/' className='p-1'>
+                    <Link to='/refugeesecondpage/refugeesingin/user/vaccinerecord/' className='p-1'>
                         <button type="button" className="btn btn-primary btn-lg btn-block ml-0">Vaccine Record</button>
                     </Link>
                 </div>
@@ -82,7 +81,7 @@ class RecordButton extends React.Component{
                 <div className="row">
                     <div className="col-6 mb-2">
                      <div className='p-1'>
-                        <button type="button" className="btn btn-primary btn-block btn-lg mx-2" onPress={this.parentRecord.bind(this)}>Parents</button>
+                        <button type="button" className="btn btn-primary btn-block btn-lg mx-2" onClick={this.parentRecord.bind(this)}>Parents</button>
                     </div>
                     </div>
                

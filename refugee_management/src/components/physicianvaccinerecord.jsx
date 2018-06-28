@@ -3,6 +3,7 @@ import Vaccinecardtick from './vaccinecardtick.jsx';
 import Vaccinecardcross from './vaccinecardcross.jsx';
 import { connect } from 'react-redux';
 import { difference } from 'lodash';
+import * as actionCreator from './action/actionCreator.js';
 
 class PhysicianVaccineRecord extends React.Component {
   constructor(props) {
@@ -10,7 +11,16 @@ class PhysicianVaccineRecord extends React.Component {
     this.state={"vacc":"done"};
   }
   moveBack(e){
-    this.props.history.push(this.props.returnpath);
+    if(this.props.location.pathname=="/refugeesecondpage/physiciansignin/user/childrecord/vaccinerecord/"){
+      this.props.dispatch(actionCreator.fetch(this.props.Children[0].parentId)).then(()=>{
+        this.props.history.push("/refugeesecondpage/physiciansignin/user");
+      })
+    }
+      else{
+        this.props.history.push("/refugeesecondpage/physiciansignin/user");
+      }
+    
+    
 }
 done(e){
   e.preventDefault();
@@ -73,7 +83,8 @@ notdone(e){
 }
 function mapStateToProps(state, ownProps) {
   return ({ state1: state.RefugeeDetails,
-            Doc:state.DoctorDetails
+            Doc:state.DoctorDetails,
+            Children:state.Child
   })
 }
 export default connect(mapStateToProps)(PhysicianVaccineRecord);
