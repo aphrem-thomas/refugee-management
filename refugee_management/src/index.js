@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import { combineReducers } from 'redux';
-import {refreshUpdate,doctorDetails} from './components/reducers/reducer_refugee.js';
+import {refreshUpdate,doctorDetails, childRecord} from './components/reducers/reducer_refugee.js';
 import {refresh_vaccine,refresh_medicine,refresh_syringe,refresh_blood,VendorDetails} from './components/reducers/reducer_supply.js';
 import { applyMiddleware } from 'redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
@@ -19,7 +19,8 @@ const TheReducer=combineReducers({
     SyringeDetails:refresh_syringe,
     BloodDetails:refresh_blood,
     DoctorDetails:doctorDetails,
-    VendorDetails:VendorDetails
+    VendorDetails:VendorDetails,
+    Child:childRecord
 
 });
 const store= createStore(TheReducer,applyMiddleware(thunk,reduxImmutableStateInvariant()));

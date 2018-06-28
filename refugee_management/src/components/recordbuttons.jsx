@@ -2,12 +2,38 @@ import React from 'react';
 import {Route, Link} from 'react-router-dom';
 import UserLabel from './userLabel.jsx';
 import UserMedicalRecord from './userMedicalRecord.jsx';
+import * as actionCreator from './action/actionCreator.js';
+import {connect} from 'react-redux';
 // import SupplyChain from './components/supplyChainHome.jsx';
 
 class RecordButton extends React.Component{
+    constructor(props){
+        super(props);
+    }
     moveBack(e){
         this.props.history.push("/refugeesecondpage/refugeesingin");
     }
+    childRecord(e){
+        e.preventDefault();
+        let arrayChildren=[];
+        let children1=this.props.Ref.children;
+        console.log(children1);
+        if(children1){
+            children1.map((item)=>{
+                let child1=item.child.split('#');
+                arrayChildren.push(child1[1])
+            })
+        }
+        arrayChildren.map((item)=>{
+            
+        })
+        this.props.dispatch(actionCreator.updateChildren(arrayChildren)).then(()=>{
+            this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
+        })
+        
+
+    }
+
   render() {
     
     return (
@@ -36,16 +62,16 @@ class RecordButton extends React.Component{
                     <div className="col-12"><h3 className="orangefont p-2">Dependent's EHR</h3></div>
                 </div>
                 <div className="row">
-                    <div className="col-6 mb-2">
-                     <Link to='/refugeesecondpage/refugeesingin/user/childrecord/' className='p-1'>
-                        <button type="button" className="btn btn-primary btn-block btn-lg mx-2">Parents</button>
-                    </Link>
+                    {/* <div className="col-6 mb-2">
+                     <div className='p-1'>
+                        <button type="button" className="btn btn-primary btn-block btn-lg mx-2" onPress={this.parentRecord.bind(this)}>Parents</button>
                     </div>
-               
+                    </div>
+                */}
                     <div className="col-6 mb-2">
-                     <Link to='/refugeesecondpage/refugeesingin/user/childrecord/' className='p-1'>
-                        <button type="button" className="btn btn-primary btn-block btn-lg ml-0">Children</button>
-                    </Link>
+                     <div className='p-1'>
+                        <button type="button" className="btn btn-primary btn-block btn-lg ml-0"onClick={this.childRecord.bind(this)}>Children</button>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -58,6 +84,14 @@ class RecordButton extends React.Component{
   }
 }
 
-export default RecordButton;
+function mapStateToProps(state,ownProps){
+    console.log("inside recordbutton map"+JSON.stringify(state.RefugeeDetails));
+    return({
+        Ref:state.RefugeeDetails,
+        Doc:state.DoctorDetails
+    })
+}
+
+export default connect(mapStateToProps)(RecordButton);
 
 

@@ -20,6 +20,55 @@ export function fetch(id, callback){
     })
 }
 
+export function addChildren(value){
+    return({type:'ADDCHILD',payload:value})
+}
+
+export function addParent(value){
+    return({type:'ADDPARENT',payload:value})
+}
+
+export function updateChildren(id){
+    return function(dispatch){
+        return axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{
+            params: {
+                param0: 'Refugee',
+                param1:id
+            }
+          }).then((response)=>{
+              let child={
+                  image:response.image,
+                  name:response.name,
+                  dob:response.dob
+              }  
+        return dispatch(addChildren(child));
+        }).catch((error)=>{throw(error);});
+    }
+    )
+}
+}
+
+export function updateParent(id){
+    return function(dispatch){
+    id.map((item)=>{
+        axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{
+            params: {
+                param0: 'Refugee',
+                param1:item
+            }
+          }).then((response)=>{
+              let parent={
+                  image:response.image,
+                  name:response.name,
+                  dob:response.dob
+              }  
+        dispatch(addParent(parent));
+        }).catch((error)=>{throw(error);});
+    })
+}
+}
+
+
 export function updateVaccineRecord(id,data){
     return(function(dispatch){
         console.log("id in updateVaccine"+ id);
