@@ -18,7 +18,6 @@ class RecordButton extends React.Component{
         
         let arrayChildren=[];
         let children1=this.props.Ref.children;
-        console.log(children1);
         if(children1){
             children1.map((item)=>{
                 let child1=item.child.split('#');
@@ -31,6 +30,26 @@ class RecordButton extends React.Component{
             }
         })
         this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
+    }
+    parentRecord(e){
+        e.preventDefault();
+         
+        let arrayParent=[];
+        let parent=this.props.Ref.parents;
+        if(parent){
+            parent.map((item)=>{
+                let child1=item.child.split('#');
+                arrayParent.push(child1[1])
+            })
+        }
+        arrayParent.map((item)=>{
+            if(this.props.Children.length==0){      //otherwise everytime we go back and return to same screen child list will get populated
+             this.props.dispatch(actionCreator.updateChildren(item,this.props.Ref.refugeeId))
+            }
+        })
+        this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
+    
+
     }
 
   render() {
@@ -61,12 +80,12 @@ class RecordButton extends React.Component{
                     <div className="col-12"><h3 className="orangefont p-2">Dependent's EHR</h3></div>
                 </div>
                 <div className="row">
-                    {/* <div className="col-6 mb-2">
+                    <div className="col-6 mb-2">
                      <div className='p-1'>
                         <button type="button" className="btn btn-primary btn-block btn-lg mx-2" onPress={this.parentRecord.bind(this)}>Parents</button>
                     </div>
                     </div>
-                */}
+               
                     <div className="col-6 mb-2">
                      <div className='p-1'>
                         <button type="button" className="btn btn-primary btn-block btn-lg ml-0"onClick={this.childRecord.bind(this)}>Children</button>
