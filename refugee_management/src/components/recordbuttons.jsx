@@ -15,6 +15,7 @@ class RecordButton extends React.Component{
     }
     childRecord(e){
         e.preventDefault();
+        
         let arrayChildren=[];
         let children1=this.props.Ref.children;
         console.log(children1);
@@ -25,13 +26,11 @@ class RecordButton extends React.Component{
             })
         }
         arrayChildren.map((item)=>{
-            
+            if(this.props.Children.length==0){      //otherwise everytime we go back and return to same screen child list will get populated
+             this.props.dispatch(actionCreator.updateChildren(item,this.props.Ref.refugeeId))
+            }
         })
-        this.props.dispatch(actionCreator.updateChildren(arrayChildren)).then(()=>{
-            this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
-        })
-        
-
+        this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
     }
 
   render() {
@@ -88,7 +87,8 @@ function mapStateToProps(state,ownProps){
     console.log("inside recordbutton map"+JSON.stringify(state.RefugeeDetails));
     return({
         Ref:state.RefugeeDetails,
-        Doc:state.DoctorDetails
+        Doc:state.DoctorDetails,
+        Children:state.Child
     })
 }
 

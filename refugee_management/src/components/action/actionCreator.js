@@ -28,7 +28,7 @@ export function addParent(value){
     return({type:'ADDPARENT',payload:value})
 }
 
-export function updateChildren(id){
+export function updateChildren(id,parent){
     return function(dispatch){
         return axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{
             params: {
@@ -36,15 +36,18 @@ export function updateChildren(id){
                 param1:id
             }
           }).then((response)=>{
+            console.log("parent is "+parent);
+              let pid=parent;  
               let child={
-                  image:response.image,
-                  name:response.name,
-                  dob:response.dob
+                  "image":response.data.refugeeImage,
+                  "name":response.data.firstName,
+                  "dob":response.data.dob,
+                  "id":response.data.refugeeId,
+                  "parentId":pid
               }  
+              console.log("child created ="+JSON.stringify(child))
         return dispatch(addChildren(child));
-        }).catch((error)=>{throw(error);});
-    }
-    )
+        }).catch((error)=>{throw(error);}); 
 }
 }
 

@@ -12,9 +12,17 @@ import BrowserRouter from 'react-router-dom/BrowserRouter';
 import {Route} from 'react-router-dom';
 import UserMedicalRecord from './userMedicalRecord.jsx';
 import UserVaccineRecord from './userVaccineRecord.jsx';
+
 class ChildHealthRecord extends React.Component {
+  constructor(props){
+    super(props);
+  }
   moveBack(e){
-    this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
+    console.log("inside moveback : "+this.props.Childs[0].parentId);
+    this.props.dispatch(actionCreator.fetch(this.props.Childs[0].parentId)).then(()=>{
+      this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
+    })
+    
 }
 med(e){
   e.preventDefault();
@@ -54,7 +62,8 @@ vacc(e){
 function mapStateToProps(state,ownProps){
   return({
     Doc:state.DoctorDetails,
-    Ref:state.RefugeeDetails
+    Ref:state.RefugeeDetails,
+    Childs:state.Child
   });
 }
 

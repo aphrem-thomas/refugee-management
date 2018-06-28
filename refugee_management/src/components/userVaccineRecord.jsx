@@ -12,7 +12,16 @@ class UserVaccineRecord extends React.Component {
 
   }
   moveBack(e){
-    this.props.history.push("/refugeesecondpage/refugeesingin/user");
+    if(this.props.location.pathname=="/refugeesecondpage/refugeesingin/user/childrecord/vaccinerecord/"){
+      this.props.dispatch(actionCreator.fetch(this.props.Children[0].parentId)).then(()=>{
+        this.props.history.push("/refugeesecondpage/refugeesingin/user");
+      })
+    }
+      else{
+        this.props.history.push("/refugeesecondpage/refugeesingin/user");
+      }
+    
+    
 }
 done(e){
   e.preventDefault();
@@ -31,7 +40,6 @@ notdone(e){
     this.props.state1.vaccinationRecords.map((item) => {
       vaccinedone.push(item.vaccineName);
     });
-    console.log("vaccine done"+vaccinedone);
     vaccinenot = difference(mandatoryVacc, vaccinedone);
     return (
       <div>
@@ -41,8 +49,8 @@ notdone(e){
         </div>
         <h2 className="mx-2 orangefont">Vaccine Record</h2>
         <div className="row">
-        <div className="col-6"><button onClick={this.done.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 mx-2">Vaccine done</button></div>
-        <div className="col-6"><button onClick={this.notdone.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 ml-0 mr-2">Vaccine not done</button></div>
+        <div className="col-6"><button onClick={this.done.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 mx-2">Done</button></div>
+        <div className="col-6"><button onClick={this.notdone.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 ml-0 mr-2">Pending</button></div>
         {/* <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/childspage/' component={} />
         <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/medicalrecord/' component={UserMedicalRecord} />
         <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/vaccinerecord/' component={UserVaccineRecord} /> */}
@@ -77,6 +85,8 @@ componentWillUnmount() {
 
 
 function mapStateToProps(state, ownProps) {
-  return ({ state1: state.RefugeeDetails })
+  return ({ state1: state.RefugeeDetails,
+            Children:state.Child
+  })
 }
 export default connect(mapStateToProps)(UserVaccineRecord);

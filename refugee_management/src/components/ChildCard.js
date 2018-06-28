@@ -1,7 +1,18 @@
 import React from 'react';
-
+import * as actionCreator from './action/actionCreator.js';
+import {connect} from 'react-redux';
 
 class ChildCard extends React.Component{
+    constructor(props){
+        super(props);
+        console.log("inside child card");
+    }
+    onClick2(){
+        this.props.dispatch(actionCreator.fetch(this.props.id)).then(()=>{
+            this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/childspage/");
+        });
+        
+    }
     render(){
         return(
             <div className="card mx-2">
@@ -16,7 +27,7 @@ class ChildCard extends React.Component{
             </div>
             </div>
             <span className="col-3 align-items-center">
-            <button onClick={this.onClick2.bind(this)} className="btn btn-primary btn-lg babybuttton ">></button>
+            <button onClick={this.props.onClick} className="btn btn-primary btn-lg babybuttton ">></button>
             </span>
             </div>
           </div>
@@ -24,4 +35,8 @@ class ChildCard extends React.Component{
     }
 }
 
-export default ChildCard;
+function mapStateToProps(state,ownProps){
+    return({Ref:state.RefugeeDetails});
+}
+
+export default connect(mapStateToProps)(ChildCard);

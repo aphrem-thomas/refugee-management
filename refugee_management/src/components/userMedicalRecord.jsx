@@ -14,6 +14,14 @@ class UserMedicalRecord extends React.Component {
         })
     }
     moveBack(e) {
+        if(this.props.location.pathname=="/refugeesecondpage/refugeesingin/user/childrecord/medicalrecord/"){
+            this.props.dispatch(actionCreator.fetch(this.props.Children[0].parentId)).then(()=>{
+              this.props.history.push("/refugeesecondpage/refugeesingin/user");
+            })
+          }
+            else{
+              this.props.history.push("/refugeesecondpage/refugeesingin/user");
+            }
         this.props.history.push(this.props.returnpath);
     }
     render() {
@@ -80,7 +88,9 @@ class UserMedicalRecord extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    return ({ state1: state.RefugeeDetails });
+    return ({ state1: state.RefugeeDetails, 
+            Children:state.Child
+    });
 }
 
 export default connect(mapStateToProps)(UserMedicalRecord);
