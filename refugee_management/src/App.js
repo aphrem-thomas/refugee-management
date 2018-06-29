@@ -11,6 +11,7 @@ import vendorsignin from './components/vendorSignIn.jsx';
 import Medicaldashboard from './components/medicaldashboard.jsx';
 import Medicalpublic from './components/medicalpublic.jsx';
 import Navbar from './components/Navbar.jsx'
+import OfficialsSignIn from './components/OfficialsSignIn';
 class App extends Component {
  
   render() {
@@ -27,7 +28,8 @@ class App extends Component {
         <Route exact path='/refugeesecondpage/physiciansignin/user' component={user}/>
         <Route exact path='/supplysecondpage/vendorlogin' component={vendorsignin}/>
         <Route exact path='/supplysecondpage/vendorlogin/user' component={Medicaldashboard}/>
-        <Route exact path='/supplysecondpage/public' component={Medicalpublic}/>
+        <Route exact path='/supplysecondpage/unlogin' component={OfficialsSignIn}/>
+        <Route exact path='/supplysecondpage/unlogin/public' component={Medicalpublic}/>
       </div>
     );
     

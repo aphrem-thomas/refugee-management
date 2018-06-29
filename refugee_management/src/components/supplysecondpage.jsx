@@ -8,7 +8,7 @@ import * as actionCreator from './action/actionCreator.js';
 class Supplysecondpage extends React.Component{
     onClick(e){
         e.preventDefault();
-        this.props.history.push("/supplysecondpage/public");
+        this.props.history.push("/supplysecondpage/unlogin");
                
     }
     moveBack(e){

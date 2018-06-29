@@ -39,8 +39,15 @@
   background-color: #222
 
 } 
-.fontred{
-  color: rgb(243, 7, 7);
+
+.frontpageimage{
+  background-image: url("images/refugeegang.JPG");
+  background-repeat:repeat-y;
+  z-index: -1;
+  background-blend-mode: multiply;
+}
+.fontblue{
+  color:#007aff;
   font-size: 125%;
   font-weight: bold;
 }

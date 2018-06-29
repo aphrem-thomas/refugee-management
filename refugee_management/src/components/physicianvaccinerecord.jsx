@@ -50,8 +50,8 @@ notdone(e){
         </div>
         <h2 className="mx-2 orangefont">Vaccine Record</h2>
         <div className="row">
-        <div className="col-6"><button onClick={this.done.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 mx-2">Vaccine done</button></div>
-        <div className="col-6"><button onClick={this.notdone.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 ml-0 mr-2">Vaccine not done</button></div>
+        <div className="col-6"><button onClick={this.done.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 mx-2">Completed</button></div>
+        <div className="col-6"><button onClick={this.notdone.bind(this)} type="button" className="btn btn-primary btn-lg  mt-0 ml-0 mr-2">Pending</button></div>
         {/* <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/childspage/' component={} />
         <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/medicalrecord/' component={UserMedicalRecord} />
         <Route exact path='/refugeesecondpage/refugeesingin/user/childrecord/vaccinerecord/' component={UserVaccineRecord} /> */}
