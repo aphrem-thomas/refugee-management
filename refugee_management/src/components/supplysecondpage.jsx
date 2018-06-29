@@ -25,7 +25,7 @@ class Supplysecondpage extends React.Component{
                         </Link>
                        
                         <div className='p-1'>
-                            <button type="button" className="btn btn-primary btn-lg btn-block" onClick={this.onClick.bind(this)}>Public </button>
+                            <button type="button" className="btn btn-primary btn-lg btn-block" onClick={this.onClick.bind(this)}>Medical distribution</button>
                         </div>
                     </div>
                 </div>

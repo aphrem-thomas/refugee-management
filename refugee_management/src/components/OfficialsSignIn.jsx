@@ -29,12 +29,12 @@ class OfficialSignIn extends React.Component{
                     <div>
                         <form className='p-5'>
                             <div className="form-group">
-                                <label htmlFor="vendorid">Id Of UN Representative</label>
+                                <label className="orangefont" htmlFor="vendorid">Id Of UN Representative</label>
                                 <input type="text" className="form-control" id="vendorid" aria-describedby="emailHelp" placeholder="Like: HG26KJDF"/>
                                 <small id="emailHelp" className="form-text text-muted">Enter Id provided for the Representative</small>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="vendorpwd">Password</label>
+                                <label className="orangefont" htmlFor="vendorpwd">Password</label>
                                 <input type="password" className="form-control" id="vendorpassword" placeholder="Like: LSKDFLDKL.SS"/>
                                 <small id="emailHelp" className="form-text text-muted">Enter password</small>
                             </div>
