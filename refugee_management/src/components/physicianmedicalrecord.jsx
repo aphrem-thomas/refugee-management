@@ -40,7 +40,7 @@ class PhysicianMedicalRecord extends React.Component {
                     <button className="btn btn-light col-3 backbutton" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                     <div className="float-right mx-3"><a href="/refugeesecondpage/physiciansignin">Logout</a></div>
                 </div>
-                <h2>Medical Record</h2>
+                <h2 className="orangefont">Medical Record</h2>
                 <div className="scrollablediv">
                     <div className="p-2">
                         <table class="table">

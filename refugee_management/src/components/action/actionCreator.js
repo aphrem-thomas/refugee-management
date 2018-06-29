@@ -28,6 +28,11 @@ export function addParent(value){
     return({type:'ADDPARENT',payload:value})
 }
 
+
+export function emptyChildren(){
+    return({type:"EMPTYCHILDREN"})
+}
+
 export function updateChildren(id,parent){
     return function(dispatch){
         return axios.get("https://hps-bna-client.mybluemix.net/getAssetDetails",{

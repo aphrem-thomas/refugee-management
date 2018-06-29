@@ -15,7 +15,6 @@ class RecordButton extends React.Component{
     }
     childRecord(e) {
         e.preventDefault();
-
         let arrayChildren = [];
         let children = this.props.Ref.children;
         if (children) {
@@ -24,18 +23,19 @@ class RecordButton extends React.Component{
                 arrayChildren.push(child1[1])
             })
         }
+        this.props.dispatch(actionCreator.emptyChildren());
         console.log("array children"+arrayChildren)
         arrayChildren.map((item) => {
-            if (this.props.Children.length == 0) {      //otherwise everytime we go back and return to same screen child list will get populated
+              //otherwise everytime we go back and return to same screen child list will get populated
                 this.props.dispatch(actionCreator.updateChildren(item, this.props.Ref.refugeeId))
-            }
+         
         })
         this.props.history.push("/refugeesecondpage/refugeesingin/user/childrecord/");
     }
 
     parentRecord(e) {
         e.preventDefault();
-
+       
         let arrayChildren = [];
         let parent=this.props.Ref.parents;
         if (parent) {
@@ -43,6 +43,7 @@ class RecordButton extends React.Component{
             let mother = parent.mother.split('#');
             arrayChildren=[father[1],mother[1]]
         }
+        this.props.dispatch(actionCreator.emptyChildren());
         arrayChildren.map((item) => {
                   //otherwise everytime we go back and return to same screen child list will get populated
                 this.props.dispatch(actionCreator.updateChildren(item, this.props.Ref.refugeeId))

@@ -25,7 +25,7 @@ class PhysicianChildRecord extends React.Component {
     return (
       <div>
         <button className="btn btn-light m-3 backbutton" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
-        <h3 className="orangefont mx-2">children</h3>
+        
         
         {
             this.props.Children.map((item,i)=>{

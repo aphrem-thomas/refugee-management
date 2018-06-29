@@ -18,6 +18,9 @@ export function childRecord(state=childInitState,action){
         case 'ADDCHILD':{
             return [...state,action.payload]
         }
+        case 'EMPTYCHILDREN':{
+            return childInitState
+        }
         default : return state;
     }
 }

@@ -31,7 +31,7 @@ class UserMedicalRecord extends React.Component {
                 <div>
                     <button className="btn btn-light col-3 backbutton" onClick={this.moveBack.bind(this)}><span><i className="material-icons backbtn">arrow_back</i></span></button>
                 </div>
-                <h2>Medical Record</h2>
+                <h2 className="orangefont">Medical Record</h2>
                 <div className="scrollablediv">
                     <div className="p-2">
                         <table class="table">

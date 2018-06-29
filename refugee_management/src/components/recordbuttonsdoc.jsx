@@ -13,9 +13,10 @@ class RecordButton extends React.Component {
 
     childRecord(e) {
         e.preventDefault();
-
+       
         let arrayChildren = [];
         let children1 = this.props.Ref.children;
+        this.props.dispatch(actionCreator.emptyChildren());
         if (children1) {
             children1.map((item) => {
                 let child1 = item.child.split('#');
@@ -23,18 +24,18 @@ class RecordButton extends React.Component {
             })
         }
         arrayChildren.map((item) => {
-            if (this.props.Children.length == 0) {      //otherwise everytime we go back and return to same screen child list will get populated
+                //otherwise everytime we go back and return to same screen child list will get populated
                 this.props.dispatch(actionCreator.updateChildren(item, this.props.Ref.refugeeId))
-            }
+            
         })
         this.props.history.push("/refugeesecondpage/physiciansignin/user/childrecord/");
     }
 
     parentRecord(e) {
         e.preventDefault();
-
         let arrayChildren = [];
         let parent=this.props.Ref.parents;
+        this.props.dispatch(actionCreator.emptyChildren());
         if (parent) {
             let father = parent.father.split('#');
             let mother = parent.mother.split('#');
