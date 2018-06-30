@@ -19,6 +19,11 @@ class UserMedicalRecord extends React.Component {
               this.props.history.push("/refugeesecondpage/refugeesingin/user");
             })
           }
+          else if(this.props.location.pathname=="/refugeesecondpage/refugeesingin/user/parentrecord/medicalrecord/"){
+            this.props.dispatch(actionCreator.fetch(this.props.Children[0].parentId)).then(()=>{
+              this.props.history.push("/refugeesecondpage/refugeesingin/user");
+            })
+        }
             else{
               this.props.history.push("/refugeesecondpage/refugeesingin/user");
             }

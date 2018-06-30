@@ -16,6 +16,11 @@ class PhysicianVaccineRecord extends React.Component {
         this.props.history.push("/refugeesecondpage/physiciansignin/user");
       })
     }
+    else if(this.props.location.pathname=="/refugeesecondpage/physiciansignin/user/parentrecord/vaccinerecord/"){
+      this.props.dispatch(actionCreator.fetch(this.props.Children[0].parentId)).then(()=>{
+        this.props.history.push("/refugeesecondpage/physiciansignin/user");
+      })
+  }
       else{
         this.props.history.push("/refugeesecondpage/physiciansignin/user");
       }
