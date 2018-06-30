@@ -42,7 +42,6 @@
 
 .frontpageimage{
   background-image: url("images/refugeegang.JPG");
-
   z-index: -1;
   background-blend-mode: multiply;
 }

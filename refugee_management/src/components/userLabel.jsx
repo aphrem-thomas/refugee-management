@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-
 class UserLable extends React.Component{
   render() {
     
@@ -11,7 +10,7 @@ class UserLable extends React.Component{
           <div className="card-body">
           <div className="row">
             <div className="col-4 col-4">
-              <img className="card-img-left img-responsive img-circle" width="100" height="100" src={"https://i.stack.imgur.com/l60Hf.png"} alt="Card image cap"/>
+              <img className="card-img-left img-responsive img-circle" width="100" height="100" src={this.props.state1.refugeeImage} alt="Card image cap"/>
             </div>
             <span className="col-8 col-8">
               <h5 className="card-title"><b>{this.props.cardtitle}</b></h5>
