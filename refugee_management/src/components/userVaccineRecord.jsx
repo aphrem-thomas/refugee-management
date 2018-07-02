@@ -39,7 +39,7 @@ notdone(e){
 }
   render() {
     var mandatoryVacc = [
-      "DEPTERIA", "ROTAVIRUS", "MMR", "HPV", "TDAP", "MEASLES", "MUMPS", "HEPATITISA", "HEPATITISB", "POLIO"];
+      "DEPTHERIA", "ROTAVIRUS", "MMR", "HPV", "TDAP", "MEASLES", "MUMPS", "HEPATITISA", "HEPATITISB", "POLIO"];
     var vaccinedone = [];
     var vaccinenot = [];
     this.props.state1.vaccinationRecords.map((item) => {
