@@ -7,7 +7,7 @@ var initState = {
     "nationality": null,
     "camp": null,
     "healthRecord":null,
-    "vaccinations": []
+    "vaccinations": []  
 };
 
 export default initState;

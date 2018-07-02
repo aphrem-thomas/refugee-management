@@ -11,6 +11,29 @@ class RecordButton extends React.Component {
         this.props.history.push("/refugeesecondpage/refugeesingin/");
     }
 
+    dependentRecord(){
+        if(this.props.Ref.children)
+        return(
+            <div className="border rounded mx-2 mt-2">
+            <div className="row">
+                <div className="col-12"><h3 className="orangefont p-2">Dependent's EHR</h3></div>
+            </div>
+            <div className="row">
+                <div className="col-6 mb-2">
+                    <div className='p-1'>
+                        <button type="button" className="btn btn-primary btn-block btn-lg mx-2" onClick={this.parentRecord.bind(this)}>Parents</button>
+                    </div>
+                </div>
+                <div className="col-6 mb-2">
+                    <div className='p-1'>
+                        <button type="button" className="btn btn-primary btn-block btn-lg ml-0" onClick={this.childRecord.bind(this)}>Children</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        );
+    }
+
     childRecord(e) {
         e.preventDefault();
        
@@ -71,23 +94,7 @@ class RecordButton extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="border rounded mx-2 mt-2">
-                    <div className="row">
-                        <div className="col-12"><h3 className="orangefont p-2">Dependent's EHR</h3></div>
-                    </div>
-                    <div className="row">
-                        <div className="col-6 mb-2">
-                            <div className='p-1'>
-                                <button type="button" className="btn btn-primary btn-block btn-lg mx-2" onClick={this.parentRecord.bind(this)}>Parents</button>
-                            </div>
-                        </div>
-                        <div className="col-6 mb-2">
-                            <div className='p-1'>
-                                <button type="button" className="btn btn-primary btn-block btn-lg ml-0" onClick={this.childRecord.bind(this)}>Children</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               {this.dependentRecord()}
                 <div className="float-right mx-3"><a href="/">Logout</a></div>
             </div>
 
