@@ -11,7 +11,7 @@ class RecordButton extends React.Component {
         this.props.history.push("/refugeesecondpage/refugeesingin/");
     }
 
-    dependentRecord(){
+    dependentRecord(){          //to show dependents if any
         if(this.props.Ref.children)
         return(
             <div className="border rounded mx-2 mt-2">
