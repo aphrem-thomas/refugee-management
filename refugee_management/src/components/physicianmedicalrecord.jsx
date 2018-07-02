@@ -143,6 +143,8 @@ class PhysicianMedicalRecord extends React.Component {
 }
 
 function mapStateToProps(state,ownProps){
-    return({Ref:state.RefugeeDetails, Doc:state.DoctorDetails})
+    return({Ref:state.RefugeeDetails, 
+        Doc:state.DoctorDetails,
+    Children:state.Child})
 }
 export default connect(mapStateToProps)(PhysicianMedicalRecord);
